@@ -1,6 +1,5 @@
 # Style Anchor System
-- 替换旧锚时保留旧版本为 `retired`，不得静默覆盖。
-+- 替换旧锚时保留旧版本为 `retired`，不得静默覆盖。
+
 本项目把“风格参考”分成四层。层级不能互相冒充；尤其不能把带 HUD 的整场景审查图当成角色、动画或尺寸锚。
 
 ## Level 0：Global Art Constitution
