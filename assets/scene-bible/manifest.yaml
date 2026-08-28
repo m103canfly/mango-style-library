@@ -1,0 +1,5341 @@
+{
+  "schema_version": 1,
+  "scene_bible_version": "1.0.0",
+  "role": "regional scene-level review bible",
+  "authority_policy": {
+    "level": "soft-reference",
+    "authoritative_for": [
+      "regional architectural language",
+      "macro scene composition",
+      "climate and vegetation cues",
+      "material and color relationships",
+      "scene-type differentiation"
+    ],
+    "soft_reference_for": [
+      "accent colors",
+      "prop motifs",
+      "crowd and street density"
+    ],
+    "not_authoritative_for": [
+      "sprite dimensions",
+      "character proportions",
+      "paper-doll alignment",
+      "animation motion or timing",
+      "tile seams",
+      "isolated asset silhouette",
+      "HUD text or UI layout"
+    ],
+    "generation_rule": "Never use a Scene Bible image as the sole reference. Pair it with an approved category Gold Anchor."
+  },
+  "visual_derivative": {
+    "purpose": "HUD-free regional visual anchor",
+    "crop_norm": [
+      0.25,
+      0.0,
+      0.835,
+      0.8
+    ],
+    "output_size": [
+      640,
+      493
+    ],
+    "resample": "nearest",
+    "color_limit": 192
+  },
+  "regions": [
+    {
+      "id": "loen",
+      "name": "鲁恩王国",
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "review_image": "assets/scene-bible/review/loen.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_鲁恩王国_10景.png",
+        "sha256": "84e11aeb1c49136e81601c4af0c617c0c0407a877d2ddb29fd4756ae8dffcc1b"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "intis",
+      "name": "因蒂斯共和国",
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "review_image": "assets/scene-bible/review/intis.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_因蒂斯共和国_10景.png",
+        "sha256": "b2ba3527f4a370a486208bbe3667754973b38d080ddddaa418b754120e5af6d1"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "feysac",
+      "name": "弗萨克帝国",
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "review_image": "assets/scene-bible/review/feysac.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_弗萨克帝国_10景.png",
+        "sha256": "6bf7facf172f355142592bf642efe6e7cdd60ae839b9d6e519696c57698e47ab"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "feynapotter",
+      "name": "费内波特王国",
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "review_image": "assets/scene-bible/review/feynapotter.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_费内波特王国_10景.png",
+        "sha256": "0cbc3a93561d8824574afcda702dcfd90977c8c0f0dc7b6d5d960c79ced5b29d"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "segar",
+      "name": "塞加尔诸邦",
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "review_image": "assets/scene-bible/review/segar.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_塞加尔诸邦_10景.png",
+        "sha256": "2bb80a285f5296f906708f932ae6ab3a9b32ef07accb2fc61d2520943d6e03ed"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "balam",
+      "name": "拜朗帝国",
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "review_image": "assets/scene-bible/review/balam.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_拜朗帝国_10景.png",
+        "sha256": "9b274c2b666ec0d24140621d4adf6b752a862956f53a4abe1c5d66af005820a5"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "highland",
+      "name": "高地王国",
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "review_image": "assets/scene-bible/review/highland.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_高地王国_10景.png",
+        "sha256": "c0c89aa434dad2ef40e2f1e2324ed0ccf28658a18bd3dcf63703e7c4801c8cd0"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "pas",
+      "name": "帕斯王国",
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "review_image": "assets/scene-bible/review/pas.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_帕斯王国_10景.png",
+        "sha256": "02033496f39cab8d48e7ba9b5e8a581c09c26a7964a6dcdb2c9c33c0a9d93c1c"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    },
+    {
+      "id": "hagati",
+      "name": "哈加提草原",
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "review_image": "assets/scene-bible/review/hagati.png",
+      "review_source": {
+        "package": "场景包_验收图与台账.zip",
+        "member": "场景包/验收_哈加提草原_10景.png",
+        "sha256": "acdda0b88f6e855b6b837d8f14c765a1a865f92e812fb4f4ea77f5cb6330738c"
+      },
+      "review_geometry": {
+        "source_size": [
+          1566,
+          2430
+        ],
+        "output_size": [
+          1024,
+          1589
+        ]
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-loen-city_hall-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/city_hall.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/市政府.png",
+        "bytes": 4525339,
+        "sha256": "ca22a14786230f91fa14d22a3b565089a7be994a6b3430046af9cc24722db2ad"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-palace-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/palace.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/皇宫.png",
+        "bytes": 4508272,
+        "sha256": "c13a8f27cabb296759da9c3082d90977f8c93a5cf03c3ec4660b2fda22e7c052"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-exchange-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/exchange.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/证券交易所.png",
+        "bytes": 3979688,
+        "sha256": "4ba8937eed4a0b4d6696b4c1f0cdecbd2c274bd639daf8530bca5bcbda3b68a1"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-university-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/university.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/大学.png",
+        "bytes": 4242888,
+        "sha256": "71936b24f6717760701d282e71156a1440365dbb190bcb1c8b1fd8994f6d3186"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-police-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/police.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/警察局.png",
+        "bytes": 4106448,
+        "sha256": "29585eeb4d088ba75f840006c32f8be3b5fcde63445ee6ad14759de9a810365b"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-market-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/market.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/闹市区.png",
+        "bytes": 4102030,
+        "sha256": "71c521f34de54170bbbaf872ec56f43cd8db64230da680de7f487b73441ddd12"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-port-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/port.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/码头.png",
+        "bytes": 4058950,
+        "sha256": "008fd45bb99f4e61a5fd79d2b4efe8ec6ef682db32049b572f8d7091549d80a5"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-detached-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/detached.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/独栋别墅区.png",
+        "bytes": 4241886,
+        "sha256": "4ffe7f1fc3dcb86973a20bf481b8c8bade99c7efe14576e3c009d2dc76c8466c"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-townhouse-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/townhouse.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/联排别墅区.png",
+        "bytes": 4090021,
+        "sha256": "22b57cfc8d6135d194b0a9983665091d3564b32d7e27d73710537a1d7e416810"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-loen-apartment-v1",
+      "nation": {
+        "id": "loen",
+        "name": "鲁恩王国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "red brick",
+        "cream stone",
+        "blue-grey slate",
+        "gas lamps",
+        "Georgian and Gothic civic forms",
+        "temperate greenery"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/loen/apartment.png",
+      "regional_review": "assets/scene-bible/review/loen.png",
+      "source": {
+        "package": "场景包_鲁恩王国.zip",
+        "member": "场景包/鲁恩王国/公寓区.png",
+        "bytes": 4071356,
+        "sha256": "ab20e7bc11fc609816901bdf7b15952a1857040bcb6eb8626199bb3701402e14"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-city_hall-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/city_hall.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/市政府.png",
+        "bytes": 4502491,
+        "sha256": "52249382e0abb072b0ce12f315056f972f89f2c670cd0f47bc8e77f5349b83aa"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-palace-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": "总统府（共和制适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/palace.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/皇宫.png",
+        "bytes": 4392372,
+        "sha256": "e9d51131484264e683940ff348c392c32cdfe163b06dbf09967bff1386c9af08"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-exchange-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/exchange.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/证券交易所.png",
+        "bytes": 4214450,
+        "sha256": "095397bb3eb83af05d52f7ae3bcfdde715084c9a5f5cfe481a1a0e7795413d73"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-university-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/university.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/大学.png",
+        "bytes": 4552022,
+        "sha256": "a83591afe3cfdfbdf23c1cdd35e7ec08c579e39d71e273abc13742d814fb43bd"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-police-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/police.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/警察局.png",
+        "bytes": 4319347,
+        "sha256": "c5a3ddf6dce88311dddf76767b8764d53ba44f55c2aa6bd1e9a96a60a841b225"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-market-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/market.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/闹市区.png",
+        "bytes": 4284306,
+        "sha256": "a24216cb883e3479c92d68661e1f2da4acec7c3d5546fed6554ba125f92f2ff5"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-port-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/port.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/码头.png",
+        "bytes": 4096837,
+        "sha256": "d3c7039497d8061f4188d6c2570d475e050a1b1281c61949edc95bc69e99dcf4"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-detached-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/detached.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/独栋别墅区.png",
+        "bytes": 4329108,
+        "sha256": "f7db1146bf1c1c3e0ae6e25c5fc04cd07e0f2f14c37c447b54a4b9f79e02d8c8"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-townhouse-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/townhouse.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/联排别墅区.png",
+        "bytes": 4274361,
+        "sha256": "4057b9d66bc7086b50562273bea84c4511105b04a60e12e12bb0492aa3866073"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-intis-apartment-v1",
+      "nation": {
+        "id": "intis",
+        "name": "因蒂斯共和国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "pale limestone",
+        "formal axes",
+        "French civic classicism",
+        "ornamental gardens",
+        "urban boulevards",
+        "republican emblems"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/intis/apartment.png",
+      "regional_review": "assets/scene-bible/review/intis.png",
+      "source": {
+        "package": "场景包_因蒂斯共和国.zip",
+        "member": "场景包/因蒂斯共和国/公寓区.png",
+        "bytes": 4217142,
+        "sha256": "1f598d84eaa3f642174f935e991f48dfe0bd26a26f1c30fd35742c34c4d79834"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-city_hall-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/city_hall.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/市政府.png",
+        "bytes": 4685693,
+        "sha256": "e70694b43fe1f10f986cdf671c29848b5139e49494874a4d0770fa248bc9b0e1"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-palace-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/palace.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/皇宫.png",
+        "bytes": 4417473,
+        "sha256": "6a9f806e5390744fe187ea3f98ac05ea28d8537c981e0d3c7af6cad1fb56ce1f"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-exchange-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/exchange.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/证券交易所.png",
+        "bytes": 4391007,
+        "sha256": "fd0ddec97e3c6d050440c0b62640ade7a441923db41f8fef292f000c9eb1db4f"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-university-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/university.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/大学.png",
+        "bytes": 4509295,
+        "sha256": "be6baf27766bfeb374c7e4f777f9f825fa65422e7ddc79c74dc40d133d9d011e"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-police-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/police.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/警察局.png",
+        "bytes": 4561881,
+        "sha256": "8df0a6166004a7a12edb6d67f596ac7bba124ba441936c634b5d87a26ad09fdc"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-market-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/market.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/闹市区.png",
+        "bytes": 4368960,
+        "sha256": "b43ae8ee2fc3522e2b37e32b6c5d2eb905c7cef371896175409b5bcf1b053ab3"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-port-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/port.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/码头.png",
+        "bytes": 4323568,
+        "sha256": "ffeccad1fa8126a323f9800503e449aeb1492d95b62a9e77045de4683c349541"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-detached-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/detached.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/独栋别墅区.png",
+        "bytes": 4922152,
+        "sha256": "7649f4ce68767de90900bd9808dd30bd33a0911b91bb86153ff08ea54ea001d0"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-townhouse-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/townhouse.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/联排别墅区.png",
+        "bytes": 4282615,
+        "sha256": "32f1696ac5265fed0429ac20403a7d9a7c55bcaba9975d6be85d189ca65012e3"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feysac-apartment-v1",
+      "nation": {
+        "id": "feysac",
+        "name": "弗萨克帝国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "snow and frost",
+        "heavy masonry",
+        "steep roofs",
+        "onion-dome accents",
+        "dark timber",
+        "imperial monumental scale"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feysac/apartment.png",
+      "regional_review": "assets/scene-bible/review/feysac.png",
+      "source": {
+        "package": "场景包_弗萨克帝国.zip",
+        "member": "场景包/弗萨克帝国/公寓区.png",
+        "bytes": 4445291,
+        "sha256": "96f549e0270962075db76686b40da39f88a179dba37effc245118a9d03594502"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-city_hall-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/city_hall.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/市政府.png",
+        "bytes": 4689228,
+        "sha256": "d2996dca8acc05a320a6d0f703b539cec65d4eec46c6812df7fc4168238f1c29"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-palace-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/palace.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/皇宫.png",
+        "bytes": 4626651,
+        "sha256": "db6a1bd13c5f4f18a75f8712960dfbbb90d6c3aa435924ad197f59cde596dd9a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-exchange-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/exchange.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/证券交易所.png",
+        "bytes": 4446023,
+        "sha256": "452016fe9a93db51e9100740688c89cd0fd3b3c15d4b6718b521cf23212a9300"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-university-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/university.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/大学.png",
+        "bytes": 4372688,
+        "sha256": "257ed76afae3616a981bfcedaac8c410593f0d7d9aa105ceb4d1d7996d2d0ef1"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-police-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/police.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/警察局.png",
+        "bytes": 4642304,
+        "sha256": "37e88674ec3ca4e2069230b6fbc0d104d1d9fe58437aebe655b5fd9d00e79bfb"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-market-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/market.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/闹市区.png",
+        "bytes": 4410281,
+        "sha256": "346fca3bac5c094ae2e7a615a785676a6053206e06eb15fb9c8c14be4f1d9d6a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-port-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/port.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/码头.png",
+        "bytes": 4537744,
+        "sha256": "bb70b99b61d0dc6bbaa41f822a3cba0540436f8712c4dd571b8497cc747fca5e"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-detached-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/detached.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/独栋别墅区.png",
+        "bytes": 4716849,
+        "sha256": "329d5a931b11a2ae945921c57dd6bf66fe9615173574f5e24df3d6c9d7dd6d21"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-townhouse-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/townhouse.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/联排别墅区.png",
+        "bytes": 4352931,
+        "sha256": "fff2bfb2015a31f2517e8d62aa650dcf40e6aff8bc792cfcb980d3b847c059cf"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-feynapotter-apartment-v1",
+      "nation": {
+        "id": "feynapotter",
+        "name": "费内波特王国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "warm stucco",
+        "terracotta",
+        "Mediterranean planting",
+        "arcades",
+        "flower-rich streets",
+        "sunlit stone"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/feynapotter/apartment.png",
+      "regional_review": "assets/scene-bible/review/feynapotter.png",
+      "source": {
+        "package": "场景包_费内波特王国.zip",
+        "member": "场景包/费内波特王国/公寓区.png",
+        "bytes": 4538524,
+        "sha256": "4d9d9b88210bea8850cd3230838b0e9e9f7d1ff2f4c4f635c21e9dffe3a08697"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-city_hall-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/city_hall.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/市政府.png",
+        "bytes": 4541785,
+        "sha256": "6340de76a1b7da670124c2006c37f416586cd93e5f1063e0f5219f89a99d8d66"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-palace-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/palace.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/皇宫.png",
+        "bytes": 4401485,
+        "sha256": "59f05e8d5399f42a1fd0dfc72c2185a3da48a48cea836d41725520343b1198c4"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-exchange-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/exchange.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/证券交易所.png",
+        "bytes": 4305112,
+        "sha256": "24e81aaf43bfc8590b0528e9f35128d7e003be0590fe6fc974f3e58da4d36db0"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-university-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/university.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/大学.png",
+        "bytes": 4489876,
+        "sha256": "028ba220b068f029ee4671d117da62842d1e8df6e6baca881d57f065b730eddb"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-police-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/police.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/警察局.png",
+        "bytes": 4301501,
+        "sha256": "5e45dfd989151802f515f4e178bf26da3a4a6c2ad81012491428f2a87933c472"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-market-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/market.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/闹市区.png",
+        "bytes": 4381793,
+        "sha256": "feeea943d88de2fbacca7407c88904871a7766461f7c9c7607faf4535c4a8d29"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-port-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/port.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/码头.png",
+        "bytes": 4259431,
+        "sha256": "e46e5d0044c50c87a78878ecb831466538807e7206386c5139b7b41933aadeb3"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-detached-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/detached.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/独栋别墅区.png",
+        "bytes": 4358346,
+        "sha256": "90f6e57abf75db447c0826f67d99a68c3d096cfbc5f643020e60492bdd6bc666"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-townhouse-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/townhouse.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/联排别墅区.png",
+        "bytes": 4455488,
+        "sha256": "158f1eda837b2d186373158c37fcaeeccafe7df1958b2b58f5e679e53627adc0"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-segar-apartment-v1",
+      "nation": {
+        "id": "segar",
+        "name": "塞加尔诸邦"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "north-central European townscape",
+        "restrained masonry",
+        "gabled roofs",
+        "muted greens",
+        "merchant civic identity",
+        "compact streets"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/segar/apartment.png",
+      "regional_review": "assets/scene-bible/review/segar.png",
+      "source": {
+        "package": "场景包_塞加尔诸邦.zip",
+        "member": "场景包/塞加尔诸邦/公寓区.png",
+        "bytes": 4327643,
+        "sha256": "fc3b1c0ac8ce85cdf3c59476c69d5accc181ea461ad3899a408360ce44992fad"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-city_hall-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/city_hall.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/市政府.png",
+        "bytes": 4443663,
+        "sha256": "94668d7897693099728db204b1f9000d2f576492c8645a3859847ed81402bbae"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-palace-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": "殖民总督府",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/palace.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/皇宫.png",
+        "bytes": 4514203,
+        "sha256": "029a60951bd00a96bed825b5376bc2d4299f9cc97c6c9e6376fe2816b6d6985e"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-exchange-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/exchange.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/证券交易所.png",
+        "bytes": 4346342,
+        "sha256": "ecd290a89c768ff06cf3d1423f8f6719550f0daa15d578cd826a48336aae4991"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-university-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/university.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/大学.png",
+        "bytes": 4227361,
+        "sha256": "257a01a6dc6ef53f77afc51acdc3f82c99b7adb855d807a0c9c9ade1d54e51a5"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-police-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/police.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/警察局.png",
+        "bytes": 4364773,
+        "sha256": "a6c68d9d8250cd6ccf5ea5b5e2aaf345c1e0a64dc5d29a6c80a9c981895f0ae3"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-market-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/market.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/闹市区.png",
+        "bytes": 4206706,
+        "sha256": "7dcf3da254764bc6454de759efadc0bd9a92801fb51fe280cf75408458c50b41"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-port-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/port.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/码头.png",
+        "bytes": 4392721,
+        "sha256": "265ef738cb9fc1d6de910e6d3d674a23d181922054714817b7ab0199420cfbfa"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-detached-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/detached.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/独栋别墅区.png",
+        "bytes": 4468203,
+        "sha256": "1776237f275d59b509642d048698d4b26e0e7aefb79177ca9c231c31c4bbee5f"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-townhouse-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/townhouse.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/联排别墅区.png",
+        "bytes": 4049031,
+        "sha256": "dfb53e6c0c856f4f4310c3659f3585d6a1438082fdd5ed17134ae0b04d177c96"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-balam-apartment-v1",
+      "nation": {
+        "id": "balam",
+        "name": "拜朗帝国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "tropical vegetation",
+        "colonial civic buildings",
+        "bright plaster",
+        "deep shade",
+        "market density",
+        "river and port motifs"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/balam/apartment.png",
+      "regional_review": "assets/scene-bible/review/balam.png",
+      "source": {
+        "package": "场景包_拜朗帝国.zip",
+        "member": "场景包/拜朗帝国/公寓区.png",
+        "bytes": 4466632,
+        "sha256": "5e8e01f04c09914d6ee763b9caf36d1f6f17d0dfcffedc938e3df3a89ce1888a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-city_hall-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/city_hall.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/市政府.png",
+        "bytes": 4449865,
+        "sha256": "65ec71239837f723f03e5ccd30d8721cc67f19d63d3b5a299f4231db1ba35fbe"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-palace-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": "总督-主教宫",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/palace.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/皇宫.png",
+        "bytes": 4633250,
+        "sha256": "98393230f29dc5c4f366c3468b83e6ae98d03f4b40132b5a9ad9d62c1c36bca7"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-exchange-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/exchange.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/证券交易所.png",
+        "bytes": 4357806,
+        "sha256": "8939b51f6f7a2cbdc3e9e3e78c2d6b703d2fc2576aa24c6bb5f483b2f1904020"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-university-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/university.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/大学.png",
+        "bytes": 4609142,
+        "sha256": "7831825b0d01e51d861f14626f36f01ba663840e1d5df258032221f277b10a9a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-police-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/police.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/警察局.png",
+        "bytes": 4392577,
+        "sha256": "6be44391ad921d0ad3a2a9ad0d6efe277bae495dff607e7b06c75ec94c2faebc"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-market-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/market.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/闹市区.png",
+        "bytes": 4407085,
+        "sha256": "65db1166726a851ee95106e477fa0ca162ae11d98ef411f1b3c28b5da34e26c3"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-port-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": "山间河港/渡口（内陆适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/port.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/码头.png",
+        "bytes": 4488677,
+        "sha256": "39c397dd04d6d8815f06c92da462d2b639d3aceee5410834b7b2f5c57658ddc6"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-detached-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/detached.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/独栋别墅区.png",
+        "bytes": 4529988,
+        "sha256": "c7e5d9edaa2610833b3956a12c6fdfac2788360c9cf36d023fd102ba8f4e3b48"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-townhouse-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/townhouse.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/联排别墅区.png",
+        "bytes": 4329860,
+        "sha256": "77dc2288e01875e9a53f252fdb8f559fdcbe70f69049a1906404673196f9fa7f"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-highland-apartment-v1",
+      "nation": {
+        "id": "highland",
+        "name": "高地王国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "mountain stone",
+        "Andean massing",
+        "terraced terrain",
+        "earth pigments",
+        "high-altitude vegetation",
+        "river-crossing infrastructure"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/highland/apartment.png",
+      "regional_review": "assets/scene-bible/review/highland.png",
+      "source": {
+        "package": "场景包_高地王国.zip",
+        "member": "场景包/高地王国/公寓区.png",
+        "bytes": 4355242,
+        "sha256": "0b277bba27cb546fe7320de2a323b19c6d3a083777d35b8debe8d86058c042e3"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-city_hall-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/city_hall.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/市政府.png",
+        "bytes": 4344648,
+        "sha256": "09b7948996b47c559072771a09648c5b8d84144c6b9163b0dd88f19ff7c20b49"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-palace-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": "总督庄园府邸",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/palace.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/皇宫.png",
+        "bytes": 4280450,
+        "sha256": "7fbd207cfb3f7a8d0038bd5725153334dd0498d0b8e9cb9db45084b63bc21f8c"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-exchange-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": "牲畜交易所（BOLSA DE GANADOS）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/exchange.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/证券交易所.png",
+        "bytes": 4417168,
+        "sha256": "9747a88fd850ea2a90dc15fa91b7e80665958a9536702fc051f6a3138d47eb1a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-university-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/university.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/大学.png",
+        "bytes": 4289129,
+        "sha256": "cb8acaad511d288657588df131bfb43413f195a6e1799030852a456e1b3148f9"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-police-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/police.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/警察局.png",
+        "bytes": 4229796,
+        "sha256": "2aa10cfd36a012d0e2ebbe9136d078b34e1f4fa6ddce0431efc5ad7de6ac7ac5"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-market-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/market.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/闹市区.png",
+        "bytes": 4343857,
+        "sha256": "d160af30b3d82bca409724422b72596e48334c00eb8e90ff572665f41f459b4d"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-port-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/port.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/码头.png",
+        "bytes": 4132729,
+        "sha256": "ae7de2e1251efb0214160a55a5645ea3326aae0f863e7e716a9cb2971d740e4a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-detached-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/detached.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/独栋别墅区.png",
+        "bytes": 4371975,
+        "sha256": "3afaaa39566f820b0097015d5ef568869ba588c7bd12c1ef81d5e2ccd51758bd"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-townhouse-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/townhouse.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/联排别墅区.png",
+        "bytes": 4389085,
+        "sha256": "16acf08660c4b4d885fa04210eb6ac0d6c9c1b7c450fda8fdc3af785d9e44cca"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-pas-apartment-v1",
+      "nation": {
+        "id": "pas",
+        "name": "帕斯王国"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "pampas landscape",
+        "ranch compounds",
+        "livestock economy",
+        "broad low buildings",
+        "warm timber",
+        "open horizons"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/pas/apartment.png",
+      "regional_review": "assets/scene-bible/review/pas.png",
+      "source": {
+        "package": "场景包_帕斯王国.zip",
+        "member": "场景包/帕斯王国/公寓区.png",
+        "bytes": 4446733,
+        "sha256": "91a27d594e15604a3d050830221a91ce7f9517ca71be59407f34f22f2c4720b8"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-city_hall-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "city_hall",
+        "name": "市政府",
+        "focus": "civic administration and public square"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/city_hall.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/市政府.png",
+        "bytes": 4598528,
+        "sha256": "31f190ebd92dbf52c7076ed4c4a14612166930f92c839bd1efc26d3c1d7f0185"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-palace-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "palace",
+        "name": "皇宫",
+        "focus": "seat of rule or region-specific equivalent"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "大汗金帐",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/palace.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/皇宫.png",
+        "bytes": 4619414,
+        "sha256": "534efcdcef43e2894013f980bffeee3c301307b4b7a69a688516c01cf7b87b2c"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-exchange-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "exchange",
+        "name": "证券交易所",
+        "focus": "trade institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "草原集市贸易站（游牧适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/exchange.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/证券交易所.png",
+        "bytes": 4508494,
+        "sha256": "37d8288f18acc892075a0e22b743a7e83e2c1e0a078df10a111011d8cfc3e87a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-university-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "university",
+        "name": "大学",
+        "focus": "education institution or region-specific equivalent"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "游塾帐篷学堂（游牧适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/university.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/大学.png",
+        "bytes": 4279173,
+        "sha256": "6716147bc71693e2f3cd1cd3c8ba141afcdb41cc4d1f305fa40a1791221ecf37"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-police-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "police",
+        "name": "警察局",
+        "focus": "law-enforcement institution"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/police.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/警察局.png",
+        "bytes": 4241068,
+        "sha256": "0db1ab0f672f613394b0917f58d719c26c68604733d829e8b175c6836fc7e94a"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-market-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "market",
+        "name": "闹市区",
+        "focus": "commercial street and crowd density"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": null,
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/market.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/闹市区.png",
+        "bytes": 4512255,
+        "sha256": "a9df374985afbee0375cb5aa19178158ea0d5ebbd79f62b34d3c43fffa9384a8"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-port-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "port",
+        "name": "码头",
+        "focus": "waterfront, river crossing, or region-specific transport edge"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "河流渡口（内陆适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/port.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/码头.png",
+        "bytes": 4423813,
+        "sha256": "b6559cfdf7a049ab24cf56cf19b14cea3a2ea2f9944d25a42c5affa0e1d4dff1"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-detached-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "detached",
+        "name": "独栋别墅区",
+        "focus": "detached affluent residential fabric"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "头人营帐区（游牧适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/detached.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/独栋别墅区.png",
+        "bytes": 4595009,
+        "sha256": "ee6a4233cdf092a1f79b2604b7884bdedbe6539e5be1f6401940a5dc2336f6d0"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-townhouse-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "townhouse",
+        "name": "联排别墅区",
+        "focus": "attached residential fabric"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "家族营帐排（游牧适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/townhouse.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/联排别墅区.png",
+        "bytes": 4578995,
+        "sha256": "6c04321934d31e4d519467020d61ed8faaafd0d789a015da35581d6785b3c682"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    },
+    {
+      "id": "scene-hagati-apartment-v1",
+      "nation": {
+        "id": "hagati",
+        "name": "哈加提草原"
+      },
+      "scene_type": {
+        "id": "apartment",
+        "name": "公寓区",
+        "focus": "dense residential fabric or region-specific equivalent"
+      },
+      "visual_features": [
+        "steppe grassland",
+        "felt tents",
+        "portable ornament",
+        "horse culture",
+        "golden earth palette",
+        "mobile settlement logic"
+      ],
+      "adaptation_note": "环营帐篷区（游牧适配）",
+      "supplied_review_status": "验收通过",
+      "authority": "soft-reference",
+      "visual_anchor": "assets/scene-bible/visual/hagati/apartment.png",
+      "regional_review": "assets/scene-bible/review/hagati.png",
+      "source": {
+        "package": "场景包_哈加提草原.zip",
+        "member": "场景包/哈加提草原/公寓区.png",
+        "bytes": 4645745,
+        "sha256": "6534a1926e507b60538e07cb87c4fba88e0ebe39a541c4150db3f287b931b34d"
+      },
+      "derivative": {
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_px": [
+          512,
+          0,
+          1710,
+          922
+        ],
+        "output_size": [
+          640,
+          493
+        ]
+      },
+      "prohibited_uses": [
+        "sprite dimensions",
+        "character proportions",
+        "paper-doll alignment",
+        "animation motion or timing",
+        "tile seams",
+        "isolated asset silhouette",
+        "HUD text or UI layout"
+      ]
+    }
+  ]
+}

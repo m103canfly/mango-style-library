@@ -1,6 +1,6 @@
 # mango-style-library — Agent 入口
 
-星露谷物语风格俯视 2D 像素游戏的主美术资产库 skill：批量产出风格统一的建筑/人物/植物/装饰/道具/食物/UI/神秘道具（诡秘之主 22 途径）/载具动物/VFX 素材，内置美术基准、《诡秘之主》九国地域标准、逐张验收、美术审查与 Godot 直出管线。
+星露谷物语风格俯视 2D 像素游戏的项目级 AI Art Direction System：分类 Gold Anchors、九地区 Scene Bible、固定调色板、共享 transform、评分审查、provenance 与回归测试。
 
 ## 何时使用
 
@@ -11,16 +11,20 @@
 ## 使用方式（必读顺序）
 
 1. 先读本目录 `SKILL.md`（完整工作流与 Pitfalls）
-2. 两大全局基准文件：`references/art-direction.md`（调色板/尺寸比例/纸娃娃画布/时段罩色）、`references/world-nations.md`（九国注入块）
-3. 按资产类别读对应 references 文件（characters / architecture-tiles / furniture-decor-plants / props-ui / beyonder-items / vehicles-animals / vfx-weather）
+2. 全局基准：`references/art-direction.md`、`references/style-anchor-system.md`、`references/art-review.md`、`references/asset-provenance.md`
+3. 先跑 `python scripts/validate_anchor_pack.py --strict`；未过时只能产出 candidate，不得标 production-ready
+4. 地区资产读 `references/world-nations.md`，动画读 `references/character-motion-standard.md`，再按类别读对应配方
 
 ## 关键规则
 
 - **图像生成只走 `scripts/gen_image.sh`**，不要直接调任何厂商 API；后端配置见 `references/harness-setup.md`（kimi 默认 / openai / deepseek）
 - 生成后必须逐张验收（read 图，对照类别清单如实报告偏差），偏差按该类别"修方"重跑
-- 批量产出后跑美术审查：`scripts/palette_audit.py` + `references/art-review.md` 闭环
+- Scene Bible 是地域场景软参考，不能替代 character/architecture/environment/interior/ui Gold Anchor
+- 纸娃娃层与动画帧必须走 `godot_export.py group`，共享 union bbox/scale/origin/baseline；禁止逐图 fit
+- 批量产出后跑固定色板审查；动画另跑 `scripts/motion_audit.py`
 - **定位红线**：含 HUD 的场景实机演示图是内部审查标准，不进引擎、不对外展示；对外交付只有 `godot_assets/` 里经 `scripts/godot_export.py` 处理的资产精灵
-- 导出 Godot 资产：`python3 scripts/godot_export.py <输入.png> <类别> <输出目录> --name slug`（类别与尺寸见脚本 docstring）
+- 每个资产必须记录 prompt/model/backend/anchor/scene/palette/transform/review/version provenance
+- 变更管线后运行 `bash scripts/run_art_regression.sh`
 
 ## 各 harness 安装
 

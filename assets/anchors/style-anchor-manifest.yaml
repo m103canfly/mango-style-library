@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "anchor_pack_version": "1.0.0",
+  "global_constitution": "references/art-direction.md",
+  "authority_rule": "Only anchors with status=approved are authoritative. Candidate, missing, and Scene Bible images must never be presented as Gold Anchors.",
+  "categories": {
+    "character": {
+      "status": "needs-production",
+      "minimum_approved": 4,
+      "defines": ["proportions", "outline", "baseline", "shading", "silhouette", "front/side pose language"],
+      "does_not_define": ["clothing inventory", "nation", "individual identity"],
+      "required_slots": ["front-body", "side-body", "portrait", "walk-cycle"],
+      "anchors": []
+    },
+    "architecture": {
+      "status": "needs-production",
+      "minimum_approved": 3,
+      "defines": ["camera angle", "door/window scale", "roof formula", "outline", "material shading"],
+      "does_not_define": ["regional ornament", "specific landmark identity"],
+      "required_slots": ["townhouse", "shop", "public-building"],
+      "anchors": []
+    },
+    "environment": {
+      "status": "needs-production",
+      "minimum_approved": 3,
+      "defines": ["tile scale", "foliage clusters", "edge treatment", "ground material contrast"],
+      "does_not_define": ["regional species inventory", "weather variant"],
+      "required_slots": ["tree", "road", "grass-ground"],
+      "anchors": []
+    },
+    "interior": {
+      "status": "needs-production",
+      "minimum_approved": 3,
+      "defines": ["wall/floor scale", "furniture scale", "interior top-down angle", "material shading"],
+      "does_not_define": ["room narrative", "regional decoration inventory"],
+      "required_slots": ["floor-wall", "chair-table", "storage-lighting"],
+      "anchors": []
+    },
+    "ui": {
+      "status": "needs-production",
+      "minimum_approved": 3,
+      "defines": ["frame thickness", "corner language", "icon scale", "state contrast", "9-slice constraints"],
+      "does_not_define": ["copy text", "localization", "screen layout"],
+      "required_slots": ["hud-frame", "panel-button", "icon-set"],
+      "anchors": []
+    }
+  },
+  "scene_bible": {
+    "manifest": "assets/scene-bible/manifest.yaml",
+    "role": "regional soft-reference and scene-level review",
+    "may_supplement": ["architecture", "environment", "ui"],
+    "may_replace_gold_anchor": false
+  }
+}

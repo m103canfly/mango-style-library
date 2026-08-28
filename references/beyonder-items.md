@@ -74,4 +74,4 @@
 
 - **特效糊满**：删 `glowing aura`，只留 `faintly glowing <部位>`
 - **道具像现代物品**：补 `Victorian era, mystical, handcrafted`
-- **随机批量风格漂移**：同批共用风格锚定参考图 + 固定途径主色写进每条 prompt
+- **随机批量风格漂移**：同批共用 approved props/UI Gold Anchor，固定途径主色用 `--special beyonder` 显式登记；地区 Scene Bible 只能补充地域材质

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "palette_version": "1.0.0",
+  "master": {
+    "id": "mango-master-v1",
+    "description": "Global shared material, outline, skin, neutral, foliage, and UI colors.",
+    "colors": [
+      "#2A211C", "#3B2B24", "#5A3826", "#6B3E1D", "#8B5A2B", "#B8793D", "#D8A15B", "#F1C982",
+      "#6F2D2A", "#8C3D2E", "#B4503C", "#D76B50", "#E8A07C", "#F2C49B", "#FFD7B3",
+      "#7B6A52", "#A89572", "#C8B995", "#E8DCC0", "#F5EBD3",
+      "#263348", "#2E3A54", "#465672", "#5A6B7C", "#7E91A0", "#B8C4C4", "#E3E7E4",
+      "#224D24", "#2E6B28", "#4E9B3A", "#78BC43", "#A8D94E", "#D4E66A",
+      "#7B541B", "#A87527", "#D9A441", "#F1CC65",
+      "#7F1718", "#C8251A", "#E34D36",
+      "#4B2D62", "#724792", "#9B68B4", "#C19BD0",
+      "#1E5A6D", "#2E8295", "#56A9B5", "#8BCAD0"
+    ]
+  },
+  "regions": {
+    "loen": {"id": "region-loen-v1", "colors": ["#9E4A3C", "#3A465A", "#DCCFB5", "#24452B"]},
+    "intis": {"id": "region-intis-v1", "colors": ["#D8C29C", "#E9D8B8", "#4E7791", "#9E3150"]},
+    "feysac": {"id": "region-feysac-v1", "colors": ["#E7ECEA", "#9DB3BD", "#34506A", "#7F2C2C"]},
+    "feynapotter": {"id": "region-feynapotter-v1", "colors": ["#D8A55F", "#E8C992", "#A65A3A", "#54783E"]},
+    "segar": {"id": "region-segar-v1", "colors": ["#758C78", "#A6B3A0", "#6D5A47", "#C3A872"]},
+    "balam": {"id": "region-balam-v1", "colors": ["#2F7755", "#51A56D", "#C86E3C", "#E3B557"]},
+    "highland": {"id": "region-highland-v1", "colors": ["#6F7B65", "#9C8A64", "#B8583A", "#D5B66D"]},
+    "pas": {"id": "region-pas-v1", "colors": ["#9A6A3A", "#C69B57", "#667B45", "#DCCB93"]},
+    "hagati": {"id": "region-hagati-v1", "colors": ["#8A5D24", "#B88635", "#D5AD55", "#70442D"]}
+  },
+  "special": {
+    "ui": {"id": "special-ui-v1", "colors": ["#5A3014", "#9A5B1F", "#D89B3B", "#F5D384", "#FFF0B5"]},
+    "vfx": {"id": "special-vfx-v1", "colors": ["#62D9FF", "#3F7DFF", "#9B5CFF", "#FF62C7", "#FFF27A"]},
+    "beyonder": {"id": "special-beyonder-v1", "colors": ["#18223E", "#3B2D64", "#65448E", "#8E6BB2", "#D2B7E5"]},
+    "emissive": {"id": "special-emissive-v1", "colors": ["#FF6B24", "#FF9B32", "#FFD35A", "#FFF1A3"]}
+  }
+}

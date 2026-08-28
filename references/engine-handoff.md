@@ -8,7 +8,7 @@ AI 生成图是概念稿/重绘参考，不能直接进引擎（自带水印、�
 2. **素材重绘拆分**（像素画师或 Aseprite，以本 skill 产出的图为参考）：
    - 地面 TileSet：32×32 一组，每材质 4-6 块错缝变体防重复感，做 terrain 自动铺边
    - 建筑/大物件 sprite：整图 + 锚点，不按 tile 切（喷泉底座与水层分离、建筑立面整幅）
-   - 角色：4 方向 × 3 帧行走（约 32×48/帧），sprite sheet 草图逐帧对齐修形
+   - 角色：4 方向 × 3 帧行走（32×48/帧），同方向帧先共享 transform 导出，再按 `character-motion-standard.md` 与 motion audit 修形
    - 动画条：水波 4-6 帧循环、炊烟、灯焰闪烁
    - UI：面板/按钮按 9-patch 切框，中心留空叠程序文字
 3. **场景搭建**（Godot 节点结构）：地面 TileMapLayer + 装饰层 + 不可见碰撞层 + 开了 `y_sort_enabled` 的 YSort 父节点（建筑/NPC/玩家按脚底 y 自动前后遮挡）+ 灯光层（煤气灯 PointLight2D 或预烘焙光晕 sprite，白天基调用 CanvasModulate 罩灰蓝）+ CanvasLayer HUD。交互点放 Area2D 弹「E 交互」提示。

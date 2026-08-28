@@ -112,4 +112,4 @@ tileable texture, game asset tile
 - **纹理不对拼**：取图中心 1/2 区域裁切后人工做镜像/错缝变体，或仅作重绘参考
 - **招牌错字**：文字加引号强调；仍错则出空白招牌，引擎里用字体叠字
 - **地标不够"独特"**：把标志物写具体（`twin spires`、`rose window` 逐个列出），不要让模型自由发挥地标特征
-- **拼进俯视场景像纸板房**（2026-08 已验证解法）：本文件配方产的是纯正面立面，适合横版/正交立面拼贴；要拼俯视 mockup 用 3/4 变体配方，两个要点缺一不可——① **视角描述放句首**（`A single game asset sprite seen from a slight top-down three-quarter view: ...` + 屋顶写成 `large sloped plane tilted toward the viewer`、老虎窗 `embedded in the roof slope`），埋在句中会被无视仍出正面图；② **不能拿正面建筑图作 --reference-image**（会把视角锚回正面），只带风格锚图。实测产出：屋顶坡面+侧墙可见的真 3/4，拼合后"纸板房"感消除
+- **拼进俯视场景像纸板房**（2026-08 已验证解法）：本文件配方产的是纯正面立面，适合横版/正交立面拼贴；要拼俯视 mockup 用 3/4 变体配方，两个要点缺一不可——① **视角描述放句首**（`A single game asset sprite seen from a slight top-down three-quarter view: ...` + 屋顶写成 `large sloped plane tilted toward the viewer`、老虎窗 `embedded in the roof slope`），埋在句中会被无视仍出正面图；② **不能拿正面建筑图作 --reference-image**（会把视角锚回正面），必须选同为 3/4 视角的 approved architecture Gold Anchor；地区 Scene Bible 只能补地域语言。没有合格 3/4 Gold Anchor 时产物保持 candidate。实测产出：屋顶坡面+侧墙可见的真 3/4，拼合后"纸板房"感消除

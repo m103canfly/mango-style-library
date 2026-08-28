@@ -46,7 +46,17 @@ transparent background, no shadow, game asset
 
 ### 第 3 步：同画布导出与合成预览
 
-每层跑 `godot_export.py <层图> character <目录> --name <角色名_层名>`——统一裁到 32×48、脚底贴底、水平居中，**叠层即对齐**。合成预览：PIL 按 z-order 依次 paste（base→outfit→hair→acc）。
+base/outfit/hair/acc 必须作为一个 asset group 一次导出，不能逐层 bbox/fit：
+
+```bash
+python scripts/godot_export.py group layer godot_assets \
+  base.png outfit.png hair.png acc.png \
+  --group-id loen_man01_default \
+  --name loen_man01_base --name loen_man01_outfit --name loen_man01_hair --name loen_man01_acc \
+  --region loen
+```
+
+导出器先把源图补到共同画布，再用 union bbox 计算一次 scale/origin/baseline；四层共享 32×48、脚底 y=47。合成预览：PIL 按 z-order 依次 paste（base→outfit→hair→acc）。`.transform.json` sidecar 必须写入资产台账。
 
 ## 完整 NPC 直出 + 锁角色换装
 
@@ -89,15 +99,15 @@ no ground, no shadow, game asset sprite sheet
 
 参数：`--ratio 3:2 --resolution 1K --background transparent`。硬规则：必须用验收过的单帧图作 `--reference-image`；一次只出一个方向（4 方向行走分 4 次）；3-4 帧封顶。动作词库：`walking`、`idle breathing`、`sitting`、`swinging a tool`、`casting a spell`、`interacting`。环境动画与特效帧另见 `references/vfx-weather.md`。
 
-## 四向行走动画（星露谷官方结构，2026-08 对照官方 wiki 修正）
+## 四向行走动画
 
-**规格**：4 方向（上/下/左/右），但 sheet 只画 **3 行 × 3 帧 = 96×144**（每帧 32×48，Godot 导入 Hframes=3 / Vframes=3）。这是星露谷官方 farmer sprite 的行走结构（Modding: Farmer sprite 词条）：
+**规格**：4 方向（上/下/左/右），但标准 sheet 只画 **3 行 × 3 帧 = 96×144**（每帧 32×48，Godot 导入 Hframes=3 / Vframes=3）。腿部轨迹、重心、步幅、头髋位移、foot lock、silhouette 的硬规则见 `references/character-motion-standard.md`。
 
 - **行序**：R1 `down`（面向屏幕）/ R2 `right`（朝右）/ R3 `up`（背向屏幕）
 - **每方向 3 帧**：F1 站立、F2 跨步 A、F3 跨步 B；**播放序列 F1→F2→F1→F3 循环（各 200ms）**，站立帧复用。静止 = F1
 - **朝左不单独画**：运行时把 right 行水平翻转（Godot `flip_h`）。官方明确左右互为镜像；镜像导致的道具换手（扫帚/文明杖换侧）官方同样接受。强不对称角色如坚持双向都画，作变体另行存档，不进标准 sheet
 
-**帧条配方**（每方向一次生成，双参考图：角色锚图 + 风格锚）——只需 down/right/up 三条，left 不生成：
+**帧条配方**（每方向一次生成：该角色上一版 approved 资产 + approved character Gold Anchor；地区差异再加 Scene Bible）——只需 down/right/up 三条，left 不生成：
 
 ```
 A pixel art sprite sheet: the exact same character as the reference image, <一句最简角色
@@ -110,7 +120,7 @@ bright saturated colors, transparent background, no ground, no shadow, game asse
 
 方向词：down `front view facing the viewer`；up `back view facing away from the viewer`；right `side view facing right`。角色描述压到最简（`one Victorian police constable in a dark navy uniform and custodian helmet` 级别），细节全靠锚图锁定，描述越多越容易和锚图打架。
 
-**后处理切帧**（AI 帧间距不均，必须程序切）：擦左下水印区 → alpha 列投影找连续段（合并 <30px 空隙）→ 段数 ≠4 时容错（多取前 4 段/少拆最宽段）→ 逐帧 alpha 裁剪 → **取 f1/f2/f4 三帧**（站立/跨步A/跨步B，丢弃 f3 重复站立帧）→ 每帧跑 `godot_export.py <帧> character <目录>`（统一 32×48 贴底）→ 按 down/right/up 行序拼 96×144 sheet。
+**后处理切帧**（AI 帧间距不均，必须程序切）：擦左下水印区 → alpha 列投影找连续段（合并 <30px 空隙）→ 段数 ≠4 时容错（多取前 4 段/少拆最宽段）→ 保持每帧共同源画布 → **取 f1/f2/f4 三帧**（站立/跨步A/跨步B，丢弃 f3 重复站立帧）→ 同方向三帧一次传给 `godot_export.py group character ...` → 跑 `motion_audit.py` → 按 down/right/up 行序拼 96×144 sheet。禁止逐帧独立 fit。
 
 **实测经验**（巡警样图）：侧视两方向腿部相位最清晰（跨步/并腿分明）；面向/背向相位较含蓄，靠手臂摆动和肩部晃动补足，验收时放宽这两向的腿部差异要求；帧间一致性整体良好，微小漂移（帽徽/纽扣位置）属草图级，Aseprite 收尾。
 
@@ -122,6 +132,7 @@ bright saturated colors, transparent background, no ground, no shadow, game asse
 - [ ] 头像：胸像构图、首饰可辨、与全身像同一人
 - [ ] sprite sheet：帧数对、单行等距、逐帧同一人、动作相位连贯
 - [ ] 四向行走：sheet 3 行（down/right/up）× 3 帧（站立/跨步A/跨步B）、96×144、播放序列 F1-F2-F1-F3、left 由 right 镜像、脚贴各帧底边
+- [ ] motion audit：无 REJECT；APPROVE 才能进入 production，REVIEW 必须人工签字并记录理由
 
 ## 修方
 

@@ -47,7 +47,7 @@ crisp clean edges, game asset, game item icon
 同系列 UI/图标要看起来是一套的：
 
 1. 先生成"基准件"（通常是面板框或物品栏格），验收确认边框材质、金色色号、圆角风格
-2. 基准件 `image-to-url` 转 URL；同系列后续每张都带 `--reference-image <基准件URL>` + `assets/style-anchor-tingen-square.png` 双参考
+2. 基准件 `image-to-url` 转 URL；同系列后续每张都带该系列已验收基准件 + `style-anchor-manifest.yaml` 中 approved UI Gold Anchor。需要地域差异时再加一个 Scene Bible visual anchor，不能用场景图替代 UI 锚
 3. prompt 开头写 `matching the UI style of the reference image, same border material, same golden trim color`
 4. 文件名成体系：`UI_面板框.png`、`UI_按钮_确认.png`、`图标_左轮.png`
 

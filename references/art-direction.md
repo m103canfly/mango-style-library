@@ -10,7 +10,17 @@
 - 纸娃娃画布与叠层规范
 - 时段罩色基准
 
-## 主调色板（全局锚点）
+## 调色板层级（机器权威 + 文案锚点）
+
+机器权威文件是 `assets/palettes/palettes.json`，版本化为：
+
+1. **Master Palette**：全项目共享的轮廓、材质、肤色、中性色、植被和常用 UI 色。
+2. **Region Accent Palette**：九国/地区的少量强调色；只在资产明确属于该地区时叠加。
+3. **Special Palette**：UI、VFX、神秘道具、发光等有明确语义的例外色；必须显式选择。
+
+导出时用 `scripts/palette_remap.py` 或 `godot_export.py --region/--special` 映射到上述固定色集合。禁止再对每张图片独立做 64 色量化；否则同一木材、肤色和阴影会产生不可审计的多套近似色。
+
+下表是 prompt 文案锚点，不是完整机器色板：
 
 prompt 里写颜色时优先用下列对应描述，保证几百件资产同色系：
 
@@ -56,11 +66,12 @@ prompt 里写颜色时优先用下列对应描述，保证几百件资产同色�
 
 ## 纸娃娃画布与叠层规范
 
-换装系统对齐机制：**所有人物层共用 32×48 画布，脚底贴 y=47，水平居中**——叠层即对齐，不依赖 AI 画面对齐。注意：同画布只解决位置对齐，不解决跨生成的比例漂移（见 characters 修方）。
+换装系统对齐机制：**所有人物层共用 32×48 画布，脚底贴 y=47，水平居中，并以一个 asset group 共享 transform**。同画布但逐层 bbox/fit 仍会产生比例漂移，因此 base/outfit/hair/acc 必须一次传给 `godot_export.py group layer ...`，由 union bbox 只计算一次 scale/origin/baseline。
 
 - z-order（从下到上）：`base`（素体）→ `outfit`（服装）→ `hair`（发型）→ `acc`（首饰/手持物）
 - 文件命名：`角色名_层名.png`，如 `loen_man01_base.png`、`loen_man01_outfit_frock.png`、`loen_man01_hair_sidepart.png`
 - 首饰在 32×48 全身像仅 1-2px 示意；戒指/怀表链/胸针等细节靠 64×64 对话头像承载
+- 组导出的 `.transform.json` sidecar 是资产 provenance 的一部分；任何单层重做都必须复用整组重新导出，不能只替换一个逐图 fit 结果。
 
 ## 时段罩色基准
 

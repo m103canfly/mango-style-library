@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+graphify-out/
+tests/.art-regression/
+art-regression-report.json
