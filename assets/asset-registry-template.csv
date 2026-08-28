@@ -1,0 +1,2 @@
+id,category,nation,name_cn,slug,source_png,exported_png,size,status,notes
+样例行-可删,building,鲁恩,鲁恩联排别墅,loen_townhouse,样图_建筑_鲁恩联排.png,godot_assets/building/loen_townhouse.png,128x128,accepted,基准件
