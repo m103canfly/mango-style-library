@@ -28,7 +28,7 @@
 |---|---:|---|
 | Technical integrity | 20 | 文件、alpha、目标画布、像素边缘、无裁切/残点/水印 |
 | Silhouette & composition | 20 | 100% 尺寸可读、视觉重心、轮廓、留白、视角 |
-| Style & palette | 20 | 固定 Master/Region/Special Palette、左上光、非纯黑描边、块状明暗 |
+| Style & palette | 20 | 固定登记色、材质 tone ramp 占用、左上光、非纯黑描边、色相偏移与块状塑形；仅“未越色”不得给高分 |
 | Category & regional identity | 15 | 类别配方命中；地域资产与 Scene Bible 特征一致但不照抄 HUD/构图 |
 | Scale & alignment | 15 | 与 64px tile、≥64px 公共门洞、`(32,96)` 人物锚点和纸娃娃共同坐标系一致 |
 | Motion/continuity | 10 | 动画相位、foot lock、轮廓重叠、身份一致；静态资产按跨变体一致性评分 |
@@ -68,7 +68,7 @@ python scripts/art_score.py review-input.json --json review.json
 
 ### Palette
 
-`scripts/palette_audit.py` 负责候选参考的固定色板诊断，不再从场景图动态扩展机器基准。正式 1× 资产由 `package_asset.py` / `validate_delivery.py` 对声明的材质子色板逐色验证，不能靠全图最近色量化过关。廷根 RGB 注册表处于 provisional 时不得给出 `runtime_ready`。
+`scripts/palette_audit.py` 负责候选参考的固定色板诊断，不再从场景图动态扩展机器基准。正式 1× 资产由 `package_asset.py` / `validate_delivery.py` 同时检查声明材质的 RGB 闭包和 tone ramp 使用量。颜色合法但材质只使用单一明度时进入 `REVIEW`；不能靠全图最近色量化过关。模板来源与冻结方法见 `references/template-palette-source.md`。
 
 ### Motion
 

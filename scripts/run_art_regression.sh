@@ -32,4 +32,4 @@ fi
   --json tests/.art-regression/palette.json
 
 echo "Art regression: PASS"
-echo "Release gate note: run 'python scripts/validate_project_profile.py --strict' after approved anchors and the final Tingen RGB palette are added."
+echo "Release gate note: the template-derived Tingen palette is approved; strict release remains blocked until Category Gold Anchors are approved."

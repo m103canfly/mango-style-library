@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "palette_version": "tingen_pixel_v3_hd",
+  "approval_status": "approved_from_template_pack",
+  "master": {
+    "id": "tingen-template-master-v1",
+    "description": "Frozen 64-color source-medoid palette derived from ten user-approved Loen/Tingen templates.",
+    "colors": [
+      "#0A0C0C",
+      "#1A110D",
+      "#16191A",
+      "#241A14",
+      "#1D201F",
+      "#1D281F",
+      "#2A221D",
+      "#2C2B24",
+      "#332F32",
+      "#383537",
+      "#3E3D3F",
+      "#484143",
+      "#4B484C",
+      "#544A4C",
+      "#5A5355",
+      "#6A6160",
+      "#8A817E",
+      "#87898D",
+      "#95878B",
+      "#9B8A85",
+      "#A09A97",
+      "#C6C0BB",
+      "#CFE0E5",
+      "#EDE4D7",
+      "#E3F4FA",
+      "#E9F6F7",
+      "#402317",
+      "#49342B",
+      "#5F3624",
+      "#7F3E25",
+      "#67544B",
+      "#90543A",
+      "#8D6F5D",
+      "#B5907A",
+      "#412F1A",
+      "#514727",
+      "#6A5331",
+      "#7C5E3E",
+      "#90663C",
+      "#8F7C47",
+      "#AB865E",
+      "#BD8D59",
+      "#C29E68",
+      "#DDB985",
+      "#223412",
+      "#243D13",
+      "#2F3818",
+      "#32420D",
+      "#34411D",
+      "#334D16",
+      "#3F4C17",
+      "#435717",
+      "#4C641A",
+      "#667E1F",
+      "#1F2C38",
+      "#2B2E3A",
+      "#263944",
+      "#383C4A",
+      "#3F5569",
+      "#449FE8",
+      "#4EB0F5",
+      "#7ABFEB",
+      "#3F2C37",
+      "#6C4456"
+    ]
+  },
+  "regions": {
+    "loen": {
+      "id": "tingen-template-loen-v1",
+      "colors": []
+    }
+  },
+  "special": {},
+  "groups": {
+    "outline": [
+      "#0A0C0C",
+      "#1A110D",
+      "#16191A",
+      "#241A14",
+      "#1D201F",
+      "#1D281F",
+      "#2A221D",
+      "#2C2B24"
+    ],
+    "neutral_dark": [
+      "#332F32",
+      "#383537",
+      "#3E3D3F",
+      "#484143",
+      "#4B484C",
+      "#544A4C",
+      "#5A5355",
+      "#6A6160"
+    ],
+    "neutral_light": [
+      "#8A817E",
+      "#87898D",
+      "#95878B",
+      "#9B8A85",
+      "#A09A97",
+      "#C6C0BB",
+      "#CFE0E5",
+      "#EDE4D7",
+      "#E3F4FA",
+      "#E9F6F7"
+    ],
+    "red_masonry": [
+      "#402317",
+      "#49342B",
+      "#5F3624",
+      "#7F3E25",
+      "#67544B",
+      "#90543A",
+      "#8D6F5D",
+      "#B5907A"
+    ],
+    "gold_wood": [
+      "#412F1A",
+      "#514727",
+      "#6A5331",
+      "#7C5E3E",
+      "#90663C",
+      "#8F7C47",
+      "#AB865E",
+      "#BD8D59",
+      "#C29E68",
+      "#DDB985"
+    ],
+    "foliage": [
+      "#223412",
+      "#243D13",
+      "#2F3818",
+      "#32420D",
+      "#34411D",
+      "#334D16",
+      "#3F4C17",
+      "#435717",
+      "#4C641A",
+      "#667E1F"
+    ],
+    "blue_slate_glass": [
+      "#1F2C38",
+      "#2B2E3A",
+      "#263944",
+      "#383C4A",
+      "#3F5569",
+      "#449FE8",
+      "#4EB0F5",
+      "#7ABFEB"
+    ],
+    "purple_accent": [
+      "#3F2C37",
+      "#6C4456"
+    ]
+  },
+  "derivation": {
+    "algorithm": "tingen-template-medoids-v1",
+    "rule": "Every registered RGB is an exact observed source pixel; generated centroids are never registered.",
+    "source_archive": "场景包_鲁恩王国.zip",
+    "source_archive_sha256": "9d69b25e671b3e281c88a1d85002a26ea1c66f867a490fb73a81c7119c36a055",
+    "member_prefix": "场景包/鲁恩王国/",
+    "members": [
+      {
+        "member": "场景包/鲁恩王国/公寓区.png",
+        "sha256": "ab20e7bc11fc609816901bdf7b15952a1857040bcb6eb8626199bb3701402e14",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/大学.png",
+        "sha256": "71936b24f6717760701d282e71156a1440365dbb190bcb1c8b1fd8994f6d3186",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/市政府.png",
+        "sha256": "ca22a14786230f91fa14d22a3b565089a7be994a6b3430046af9cc24722db2ad",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/独栋别墅区.png",
+        "sha256": "4ffe7f1fc3dcb86973a20bf481b8c8bade99c7efe14576e3c009d2dc76c8466c",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/皇宫.png",
+        "sha256": "c13a8f27cabb296759da9c3082d90977f8c93a5cf03c3ec4660b2fda22e7c052",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/码头.png",
+        "sha256": "008fd45bb99f4e61a5fd79d2b4efe8ec6ef682db32049b572f8d7091549d80a5",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/联排别墅区.png",
+        "sha256": "22b57cfc8d6135d194b0a9983665091d3564b32d7e27d73710537a1d7e416810",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/警察局.png",
+        "sha256": "29585eeb4d088ba75f840006c32f8be3b5fcde63445ee6ad14759de9a810365b",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/证券交易所.png",
+        "sha256": "4ba8937eed4a0b4d6696b4c1f0cdecbd2c274bd639daf8530bca5bcbda3b68a1",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      },
+      {
+        "member": "场景包/鲁恩王国/闹市区.png",
+        "sha256": "71c521f34de54170bbbaf872ec56f43cd8db64230da680de7f487b73441ddd12",
+        "source_size": [
+          2048,
+          1152
+        ],
+        "crop_norm": [
+          0.25,
+          0.0,
+          0.835,
+          0.8
+        ],
+        "sample_size": [
+          384,
+          296
+        ]
+      }
+    ],
+    "group_slots": {
+      "outline": 8,
+      "neutral_dark": 8,
+      "neutral_light": 10,
+      "red_masonry": 8,
+      "gold_wood": 10,
+      "foliage": 10,
+      "blue_slate_glass": 8,
+      "purple_accent": 2
+    },
+    "hud_exclusion": "central crop before sampling",
+    "runtime_sampling": false
+  }
+}

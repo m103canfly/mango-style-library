@@ -24,7 +24,7 @@ import numpy as np
 from PIL import Image
 
 
-DEFAULT_PALETTE = Path(__file__).resolve().parents[1] / "assets" / "palettes" / "palettes.json"
+DEFAULT_PALETTE = Path(__file__).resolve().parents[1] / "assets" / "palettes" / "tingen-template-palette.json"
 
 
 def _hex_to_rgb(value: str) -> tuple[int, int, int]:

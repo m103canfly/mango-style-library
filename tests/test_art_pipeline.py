@@ -8,7 +8,7 @@ from argparse import Namespace
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,8 +62,8 @@ class SharedTransformTests(unittest.TestCase):
 
 class PaletteTests(unittest.TestCase):
     def test_remap_output_is_subset_of_declared_palette(self) -> None:
-        config = load_palette_config(ROOT / "assets" / "palettes" / "palettes.json")
-        palette, metadata = build_palette(config, region="loen", specials=("ui",))
+        config = load_palette_config(ROOT / "assets" / "palettes" / "tingen-template-palette.json")
+        palette, metadata = build_palette(config, region="loen")
         image = Image.open(ROOT / "tests" / "gold" / "palette" / "input.png")
         output = remap_image(image, palette)
         rgb = np.asarray(output)[..., :3]
@@ -71,8 +71,26 @@ class PaletteTests(unittest.TestCase):
         actual = {tuple(color) for color in rgb[alpha > 0]}
         declared = {tuple(color) for color in palette}
         self.assertTrue(actual <= declared)
-        self.assertIn("mango-master-v1", metadata["palette_ids"])
-        self.assertIn("region-loen-v1", metadata["palette_ids"])
+        self.assertIn("tingen-template-master-v1", metadata["palette_ids"])
+        self.assertIn("tingen-template-loen-v1", metadata["palette_ids"])
+
+    def test_template_palette_and_material_ramps_are_frozen(self) -> None:
+        config = load_json(ROOT / "assets" / "palettes" / "tingen-template-palette.json")
+        registry = load_json(ROOT / "assets" / "palettes" / "tingen-materials.json")
+        master = config["master"]["colors"]
+        self.assertEqual(len(master), 64)
+        self.assertEqual(len(set(master)), 64)
+        self.assertEqual(config["approval_status"], "approved_from_template_pack")
+        self.assertEqual(len(config["derivation"]["members"]), 10)
+        self.assertFalse(config["derivation"]["runtime_sampling"])
+        for material_id, material in registry["materials"].items():
+            self.assertTrue(set(material["colors"]) <= set(master), material_id)
+            self.assertTrue(
+                {entry["color"] for entry in material["tone_ramp"]} <= set(material["colors"]),
+                material_id,
+            )
+            if material.get("audit_tone_usage"):
+                self.assertGreaterEqual(len(material["tone_ramp"]), 3, material_id)
 
 
 class MotionTests(unittest.TestCase):
@@ -140,6 +158,20 @@ class TingenDeliveryTests(unittest.TestCase):
             self.assertEqual(result["verdict"], "REJECT", result)
             self.assertTrue(any("alpha values" in error for error in result["errors"]))
 
+    def test_single_tone_material_requires_flat_shading_review(self) -> None:
+        profile = load_json(DEFAULT_PROFILE)
+        registry = load_json(ROOT / "assets" / "palettes" / "tingen-materials.json")
+        contract = resolve_asset_contract(profile, "character_frame")
+        skin_mid = registry["materials"]["skin.fair"]["tone_ramp"][1]["color"]
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "flat_skin.png"
+            image = Image.new("RGBA", (64, 96), (0, 0, 0, 0))
+            ImageDraw.Draw(image).rectangle((28, 72, 35, 95), fill=skin_mid)
+            image.save(path)
+            result = audit_native_png(path, profile, DEFAULT_PROFILE, contract, ["skin.fair"])
+            self.assertEqual(result["verdict"], "REVIEW", result)
+            self.assertTrue(any("flat-shading review required" in warning for warning in result["warnings"]))
+
 
 class ArtScoreTests(unittest.TestCase):
     @staticmethod
@@ -204,8 +236,9 @@ class AnchorPackTests(unittest.TestCase):
         result = validate_project_profile(DEFAULT_PROFILE, ROOT)
         self.assertTrue(result["valid"], result)
         self.assertFalse(result["release_ready"])
-        self.assertIn("Tingen RGB palette is provisional and has not been project-approved", result["blockers"])
+        self.assertNotIn("Tingen RGB palette is provisional and has not been project-approved", result["blockers"])
         self.assertIn("Category Gold Anchor Pack is not release-ready", result["blockers"])
+        self.assertEqual(result["palette_approval_status"], "approved_from_template_pack")
 
 
 if __name__ == "__main__":

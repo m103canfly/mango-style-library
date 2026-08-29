@@ -2,7 +2,7 @@
   "schema_version": 1,
   "profile_id": "tingen_pixel_v3_hd",
   "style_version": "tingen_pixel_v3_hd",
-  "status": "integration_ready_palette_approval_pending",
+  "status": "integration_ready_anchor_approval_pending",
   "native_scale": 1,
   "format": "PNG",
   "preview": {
@@ -33,14 +33,15 @@
   },
   "palette": {
     "palette_version": "tingen_pixel_v3_hd",
-    "registry": "assets/palettes/palettes.json",
-    "master": "mango-master-v1",
+    "registry": "assets/palettes/tingen-template-palette.json",
+    "master": "tingen-template-master-v1",
     "region": "loen",
-    "region_palette": "region-loen-v1",
+    "region_palette": "tingen-template-loen-v1",
     "material_registry": "assets/palettes/tingen-materials.json",
-    "approval_status": "provisional_pending_project_palette_import",
-    "runtime_release_blocked": true,
-    "note": "The exact project RGB registry was not supplied with the written standard. Current colors are a provisional mapping to the repository Master + Loen palette and must not be represented as the approved project palette."
+    "approval_status": "approved_from_template_pack",
+    "runtime_release_blocked": false,
+    "remap_policy": "material_masks_required_no_global_nearest_color",
+    "note": "The user-designated Loen/Tingen template pack is the color-source authority. The committed registry freezes exact observed source-pixel medoids and semantic material tone ramps; runtime sampling and whole-composite nearest-color remapping are prohibited."
   },
   "source_policy": {
     "generated_image_role": "hd_reference_only",

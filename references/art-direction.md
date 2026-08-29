@@ -12,7 +12,7 @@
 - 颜色必须来自廷根登记色板，并按石材、木材、玻璃、铁艺等材质子色板声明。
 - 生成式图片只能作为 HD 参考，禁止缩小、量化或自动 fit 后直接交付。
 
-当前仓库只有从 Mango Master + Loen 映射出的临时廷根色表，状态为 `provisional_pending_project_palette_import`。在用户提供并批准完整廷根 RGB 登记表前，验证器会阻止 `runtime_ready`，不能把临时映射冒充正式色表。
+用户指定的十张鲁恩/廷根模板原图是颜色来源权威。`assets/palettes/tingen-template-palette.json` 固化从无 HUD 区域提取的 64 个原图实存 RGB；提取来源、裁切、算法和 SHA-256 均写入 registry。运行时工具只读已提交 registry，禁止动态扫描 Scene Bible 扩色。
 
 ## 原生尺寸
 
@@ -37,7 +37,9 @@
 - 人物默认不超过 24 个登记色；专项合同可以更严。
 - 透明像素不计颜色数。
 - 禁止对复合资产执行全项目最近色量化；正式 1× 资产必须由像素画师按材质子色板落色。
-- `assets/palettes/tingen-materials.json` 是当前材质子色板注册表；其 provisional 状态是发布阻断项。
+- `assets/palettes/tingen-materials.json` 是正式材质子色板注册表；每种材质同时登记语义 tone ramp，至少覆盖阴影、中间色和高光。
+- “颜色均在 Master 内”只证明没有漂色，不证明塑形合格。声明材质未使用最低 tone roles 时，技术审计必须给出平涂 `REVIEW` 警告。
+- 石材、木材、玻璃、铁艺等复合资产必须用材质遮罩分别落色；禁止用整图最近色重映射制造伪合规。
 
 `palette_remap.py` 仅用于候选参考和诊断，不能把 HD 生成图“洗成色板”后视为正式像素资产。
 

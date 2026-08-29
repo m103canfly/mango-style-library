@@ -1,20 +1,504 @@
 {
   "schema_version": 1,
   "palette_version": "tingen_pixel_v3_hd",
-  "approval_status": "provisional_pending_project_palette_import",
-  "common_material_ids": ["outline.shared"],
+  "approval_status": "approved_from_template_pack",
+  "source_authority": "user-designated Loen/Tingen template scenes",
+  "composite_remap_policy": "material_masks_required_no_global_nearest_color",
+  "flat_fill_policy": "review_when_declared_material_uses_fewer_than_minimum_tone_roles",
+  "common_material_ids": [
+    "outline.shared"
+  ],
   "materials": {
-    "outline.shared": {"colors": ["#2A211C", "#3B2B24", "#263348"]},
-    "stone.warm_dressed": {"colors": ["#7B6A52", "#A89572", "#C8B995", "#E8DCC0", "#F5EBD3"]},
-    "stone.cool_slate": {"colors": ["#263348", "#465672", "#5A6B7C", "#7E91A0", "#B8C4C4", "#E3E7E4"]},
-    "wood.warm": {"colors": ["#3B2B24", "#5A3826", "#6B3E1D", "#8B5A2B", "#B8793D", "#D8A15B"]},
-    "door.dark_green_civic": {"colors": ["#224D24", "#24452B", "#2E6B28", "#4E9B3A"]},
-    "glass.slate_blue": {"colors": ["#263348", "#465672", "#5A6B7C", "#7E91A0", "#B8C4C4"]},
-    "iron.black_cast": {"colors": ["#2A211C", "#263348", "#3B2B24", "#465672"]},
-    "terrain.cobblestone": {"colors": ["#263348", "#465672", "#5A6B7C", "#7E91A0", "#A89572", "#B8C4C4", "#C8B995", "#E3E7E4", "#2A211C", "#3B2B24"]},
-    "terrain.grass": {"colors": ["#224D24", "#2E6B28", "#4E9B3A", "#78BC43", "#A8D94E", "#D4E66A", "#24452B", "#2A211C", "#3B2B24", "#7B541B"]},
-    "skin.fair": {"colors": ["#8C3D2E", "#E8A07C", "#F2C49B", "#FFD7B3"]},
-    "cloth.navy": {"colors": ["#263348", "#2E3A54", "#465672", "#5A6B7C", "#7E91A0"]},
-    "metal.warm_brass": {"colors": ["#7B541B", "#A87527", "#D9A441", "#F1CC65"]}
-  }
+    "outline.shared": {
+      "colors": [
+        "#0A0C0C",
+        "#1A110D",
+        "#16191A",
+        "#1D201F",
+        "#241A14",
+        "#1D281F",
+        "#2A221D",
+        "#2C2B24",
+        "#332F32",
+        "#383537"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#0A0C0C"
+        },
+        {
+          "role": "shadow",
+          "color": "#16191A"
+        },
+        {
+          "role": "midtone",
+          "color": "#241A14"
+        },
+        {
+          "role": "light",
+          "color": "#2C2B24"
+        },
+        {
+          "role": "highlight",
+          "color": "#383537"
+        }
+      ],
+      "minimum_tone_roles": 0,
+      "audit_tone_usage": false,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "stone.warm_dressed": {
+      "colors": [
+        "#8A817E",
+        "#8D6F5D",
+        "#87898D",
+        "#95878B",
+        "#9B8A85",
+        "#A09A97",
+        "#B5907A",
+        "#C6C0BB",
+        "#DDB985",
+        "#CFE0E5",
+        "#EDE4D7",
+        "#E9F6F7",
+        "#E3F4FA"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#8A817E"
+        },
+        {
+          "role": "shadow",
+          "color": "#95878B"
+        },
+        {
+          "role": "midtone",
+          "color": "#B5907A"
+        },
+        {
+          "role": "light",
+          "color": "#CFE0E5"
+        },
+        {
+          "role": "highlight",
+          "color": "#E3F4FA"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "stone.cool_slate": {
+      "colors": [
+        "#332F32",
+        "#383537",
+        "#2B2E3A",
+        "#3E3D3F",
+        "#484143",
+        "#383C4A",
+        "#4B484C",
+        "#544A4C",
+        "#5A5355",
+        "#3F5569",
+        "#6A6160",
+        "#8A817E",
+        "#87898D",
+        "#95878B",
+        "#9B8A85",
+        "#A09A97",
+        "#C6C0BB",
+        "#CFE0E5",
+        "#EDE4D7",
+        "#E9F6F7",
+        "#E3F4FA"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#332F32"
+        },
+        {
+          "role": "shadow",
+          "color": "#383C4A"
+        },
+        {
+          "role": "midtone",
+          "color": "#6A6160"
+        },
+        {
+          "role": "light",
+          "color": "#A09A97"
+        },
+        {
+          "role": "highlight",
+          "color": "#E3F4FA"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "wood.warm": {
+      "colors": [
+        "#402317",
+        "#412F1A",
+        "#49342B",
+        "#514727",
+        "#5F3624",
+        "#67544B",
+        "#6A5331",
+        "#7C5E3E",
+        "#7F3E25",
+        "#8D6F5D",
+        "#8F7C47",
+        "#90543A",
+        "#90663C",
+        "#AB865E",
+        "#B5907A",
+        "#BD8D59",
+        "#C29E68"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#402317"
+        },
+        {
+          "role": "shadow",
+          "color": "#5F3624"
+        },
+        {
+          "role": "midtone",
+          "color": "#7F3E25"
+        },
+        {
+          "role": "light",
+          "color": "#90663C"
+        },
+        {
+          "role": "highlight",
+          "color": "#C29E68"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "door.dark_green_civic": {
+      "colors": [
+        "#223412",
+        "#2F3818",
+        "#243D13",
+        "#34411D",
+        "#32420D",
+        "#3F4C17",
+        "#334D16",
+        "#435717",
+        "#4C641A",
+        "#667E1F"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#223412"
+        },
+        {
+          "role": "shadow",
+          "color": "#243D13"
+        },
+        {
+          "role": "midtone",
+          "color": "#32420D"
+        },
+        {
+          "role": "light",
+          "color": "#435717"
+        },
+        {
+          "role": "highlight",
+          "color": "#667E1F"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "glass.slate_blue": {
+      "colors": [
+        "#3F5569",
+        "#8A817E",
+        "#87898D",
+        "#95878B",
+        "#9B8A85",
+        "#A09A97",
+        "#C6C0BB",
+        "#CFE0E5",
+        "#449FE8",
+        "#7ABFEB",
+        "#EDE4D7",
+        "#4EB0F5",
+        "#E9F6F7",
+        "#E3F4FA"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#3F5569"
+        },
+        {
+          "role": "shadow",
+          "color": "#95878B"
+        },
+        {
+          "role": "midtone",
+          "color": "#C6C0BB"
+        },
+        {
+          "role": "light",
+          "color": "#EDE4D7"
+        },
+        {
+          "role": "highlight",
+          "color": "#E3F4FA"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "iron.black_cast": {
+      "colors": [
+        "#0A0C0C",
+        "#1A110D",
+        "#16191A",
+        "#1D201F",
+        "#241A14",
+        "#1D281F",
+        "#2A221D",
+        "#2C2B24",
+        "#332F32",
+        "#383537",
+        "#3E3D3F",
+        "#484143",
+        "#4B484C",
+        "#544A4C",
+        "#5A5355",
+        "#6A6160"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#0A0C0C"
+        },
+        {
+          "role": "shadow",
+          "color": "#241A14"
+        },
+        {
+          "role": "midtone",
+          "color": "#332F32"
+        },
+        {
+          "role": "light",
+          "color": "#484143"
+        },
+        {
+          "role": "highlight",
+          "color": "#6A6160"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "terrain.cobblestone": {
+      "colors": [
+        "#332F32",
+        "#383537",
+        "#3E3D3F",
+        "#484143",
+        "#4B484C",
+        "#544A4C",
+        "#5A5355",
+        "#6A6160",
+        "#8A817E",
+        "#87898D",
+        "#95878B",
+        "#9B8A85",
+        "#A09A97",
+        "#C6C0BB",
+        "#DDB985",
+        "#CFE0E5",
+        "#EDE4D7",
+        "#E9F6F7",
+        "#E3F4FA"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#332F32"
+        },
+        {
+          "role": "shadow",
+          "color": "#4B484C"
+        },
+        {
+          "role": "midtone",
+          "color": "#87898D"
+        },
+        {
+          "role": "light",
+          "color": "#DDB985"
+        },
+        {
+          "role": "highlight",
+          "color": "#E3F4FA"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "terrain.grass": {
+      "colors": [
+        "#223412",
+        "#2F3818",
+        "#243D13",
+        "#34411D",
+        "#32420D",
+        "#3F4C17",
+        "#334D16",
+        "#435717",
+        "#4C641A",
+        "#667E1F"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#223412"
+        },
+        {
+          "role": "shadow",
+          "color": "#243D13"
+        },
+        {
+          "role": "midtone",
+          "color": "#32420D"
+        },
+        {
+          "role": "light",
+          "color": "#435717"
+        },
+        {
+          "role": "highlight",
+          "color": "#667E1F"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "skin.fair": {
+      "colors": [
+        "#8D6F5D",
+        "#B5907A",
+        "#DDB985"
+      ],
+      "tone_ramp": [
+        {
+          "role": "shadow",
+          "color": "#8D6F5D"
+        },
+        {
+          "role": "midtone",
+          "color": "#B5907A"
+        },
+        {
+          "role": "highlight",
+          "color": "#DDB985"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "cloth.navy": {
+      "colors": [
+        "#0A0C0C",
+        "#1A110D",
+        "#1F2C38",
+        "#2B2E3A",
+        "#263944",
+        "#383C4A",
+        "#3F5569"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#0A0C0C"
+        },
+        {
+          "role": "shadow",
+          "color": "#1F2C38"
+        },
+        {
+          "role": "midtone",
+          "color": "#2B2E3A"
+        },
+        {
+          "role": "light",
+          "color": "#263944"
+        },
+        {
+          "role": "highlight",
+          "color": "#3F5569"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    },
+    "metal.warm_brass": {
+      "colors": [
+        "#6A5331",
+        "#7C5E3E",
+        "#8F7C47",
+        "#90663C",
+        "#AB865E",
+        "#BD8D59",
+        "#C29E68",
+        "#DDB985"
+      ],
+      "tone_ramp": [
+        {
+          "role": "deep_shadow",
+          "color": "#6A5331"
+        },
+        {
+          "role": "shadow",
+          "color": "#8F7C47"
+        },
+        {
+          "role": "midtone",
+          "color": "#AB865E"
+        },
+        {
+          "role": "light",
+          "color": "#BD8D59"
+        },
+        {
+          "role": "highlight",
+          "color": "#DDB985"
+        }
+      ],
+      "minimum_tone_roles": 3,
+      "audit_tone_usage": true,
+      "shading_policy": "clustered_pixel_shading_no_smooth_gradient"
+    }
+  },
+  "registered_palette_color_count": 64,
+  "derivation_algorithm": "tingen-template-medoids-v1",
+  "source_palette_id": "tingen-template-master-v1"
 }

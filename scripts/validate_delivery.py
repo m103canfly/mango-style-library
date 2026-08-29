@@ -14,6 +14,7 @@ from tingen_contract import (
     DEFAULT_PROFILE,
     audit_native_png,
     load_json,
+    palette_is_approved,
     resolve_asset_contract,
     sha256_file,
     validate_import_contract,
@@ -106,7 +107,7 @@ def validate_delivery(directory: str | Path, profile_path: str | Path = DEFAULT_
         runtime_validation.get(field) is True
         for field in ("entrance", "collision", "navigation", "same_screen_scale")
     )
-    palette_approved = profile["palette"]["approval_status"] == "approved"
+    palette_approved = palette_is_approved(profile["palette"]["approval_status"])
     runtime_ready = not errors and runtime_passed and palette_approved
     if manifest.get("lifecycle_status") == "runtime_ready" and not runtime_ready:
         errors.append("manifest claims runtime_ready without palette and Godot runtime approval")

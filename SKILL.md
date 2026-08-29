@@ -15,13 +15,14 @@ description: 为廷根项目生产风格统一、可审计、可回归的 2D 像
 python scripts/validate_project_profile.py --strict
 ```
 
-严格门同时检查分类 Gold Anchors 和廷根 RGB 色板批准状态。任一未满足时，系统仍可生成 HD reference、制作原生 1× candidate 和验证管线，但不得标 production/runtime-ready。
+严格门同时检查分类 Gold Anchors 和廷根 RGB 色板批准状态。模板派生色板现已批准；当前剩余发布阻断项是五类 Gold Anchor Pack。发布门未满足时，系统仍可生成 HD reference、制作原生 1× candidate 和验证管线，但不得标 production/runtime-ready。
 
 ## Read before work
 
 所有任务先读：
 
 - `references/art-direction.md`：全局尺寸、baseline、光照、描边、固定调色板层级。
+- `references/template-palette-source.md`：模板色板来源、材质 tone ramp 与防平涂边界。
 - `references/style-anchor-system.md`：四级基准体系与参考图权威边界。
 - `references/art-review.md`：100 分评分、APPROVE/REVIEW/REJECT 与 critical fail。
 - `references/asset-provenance.md`：资产台账必填字段。
@@ -76,7 +77,7 @@ python scripts/godot_export.py group layer reference_candidates \
 
 组导出先统一源画布，再用 union bbox 只计算一次 scale/origin/baseline。`.transform.json` 的 `transform_id` 必须回填台账。禁止对同组成员逐图 bbox/fit。该工具输出固定标记为 `reference_candidate_not_runtime_ready`。
 
-候选导出器可映射到 `assets/palettes/palettes.json` 以便比较；这不能替代正式 1× 材质落色。复合资产禁止全图最近色量化。
+候选导出器默认映射到 `assets/palettes/tingen-template-palette.json` 以便比较；这不能替代正式 1× 材质落色。复合资产必须按 `assets/palettes/tingen-materials.json` 的材质遮罩和 tone ramp 分别处理，禁止全图最近色量化。只通过 RGB 闭包但 tone roles 不足时必须进入平涂复核。
 
 像素画师完成原生 1× PNG 后，使用项目打包器；它不会缩放运行时 PNG：
 

@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from palette_remap import build_palette, load_palette_config
-from tingen_contract import DEFAULT_PROFILE, load_json, material_colors, resolve_project_path
+from tingen_contract import DEFAULT_PROFILE, load_json, material_colors, palette_is_approved, resolve_project_path
 from validate_anchor_pack import DEFAULT_MANIFEST, validate as validate_anchor_pack
 
 
@@ -26,15 +26,36 @@ def validate(profile_path: Path, repository_root: Path) -> dict:
     if not material_registry_path.is_file():
         errors.append(f"missing material registry {material_registry_path}")
     if not errors:
-        palette, _ = build_palette(load_palette_config(palette_config_path), region=profile["palette"]["region"])
+        palette_config = load_palette_config(palette_config_path)
+        palette, _ = build_palette(palette_config, region=profile["palette"]["region"])
         registry = load_json(material_registry_path)
+        if palette_config.get("approval_status") != profile["palette"].get("approval_status"):
+            errors.append("profile and palette registry approval_status do not match")
+        if registry.get("approval_status") != profile["palette"].get("approval_status"):
+            errors.append("profile and material registry approval_status do not match")
+        if palette_config.get("derivation", {}).get("runtime_sampling") is not False:
+            errors.append("template palette must explicitly prohibit runtime sampling")
+        if registry.get("composite_remap_policy") != "material_masks_required_no_global_nearest_color":
+            errors.append("material registry must prohibit whole-composite nearest-color remapping")
         all_material_ids = list(registry["materials"])
         registered, _ = material_colors(profile, profile_path, all_material_ids)
         base_colors = {tuple(int(channel) for channel in color) for color in palette}
         outside = sorted(registered - base_colors)
         if outside:
             errors.append(f"material registry contains {len(outside)} colors outside Master + Region palette")
-    if profile["palette"].get("approval_status") != "approved":
+        for material_id, material in registry["materials"].items():
+            colors = set(material.get("colors", []))
+            ramp = material.get("tone_ramp", [])
+            ramp_colors = [entry.get("color") for entry in ramp]
+            ramp_roles = [entry.get("role") for entry in ramp]
+            minimum = int(material.get("minimum_tone_roles", 0))
+            if not set(ramp_colors) <= colors:
+                errors.append(f"material {material_id} tone_ramp contains colors outside its sub-palette")
+            if len(ramp_colors) != len(set(ramp_colors)) or len(ramp_roles) != len(set(ramp_roles)):
+                errors.append(f"material {material_id} tone_ramp contains duplicate color or role entries")
+            if material.get("audit_tone_usage") and (minimum < 3 or len(ramp) < minimum):
+                errors.append(f"material {material_id} lacks the minimum anti-flat tone ramp")
+    if not palette_is_approved(profile["palette"].get("approval_status")):
         blockers.append("Tingen RGB palette is provisional and has not been project-approved")
     anchor_result = validate_anchor_pack(repository_root / DEFAULT_MANIFEST, repository_root)
     if not anchor_result["valid"]:

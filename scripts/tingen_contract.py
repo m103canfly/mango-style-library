@@ -18,6 +18,11 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROFILE = ROOT / "profiles" / "tingen_pixel_v3_hd" / "profile.json"
+APPROVED_PALETTE_STATUSES = frozenset({"approved", "approved_from_template_pack"})
+
+
+def palette_is_approved(status: object) -> bool:
+    return status in APPROVED_PALETTE_STATUSES
 
 
 def load_json(path: str | Path) -> dict:
@@ -66,12 +71,21 @@ def material_colors(
         for material_id in selected
         for color in materials[material_id].get("colors", [])
     }
+    tone_ramps = {
+        material_id: {
+            "tone_ramp": materials[material_id].get("tone_ramp", []),
+            "minimum_tone_roles": int(materials[material_id].get("minimum_tone_roles", 0)),
+            "audit_tone_usage": bool(materials[material_id].get("audit_tone_usage", False)),
+        }
+        for material_id in selected
+    }
     return colors, {
         "palette_version": registry["palette_version"],
         "approval_status": registry["approval_status"],
         "material_ids": selected,
         "registered_color_count": len(colors),
         "registry": str(registry_path),
+        "material_tone_ramps": tone_ramps,
     }
 
 
@@ -191,6 +205,22 @@ def audit_native_png(
     unregistered = sorted(opaque_colors - allowed_colors)
     if unregistered:
         errors.append(f"{len(unregistered)} opaque RGB colors are outside declared material sub-palettes")
+    tone_usage = {}
+    for material_id in dict.fromkeys(material_ids):
+        ramp_meta = palette_meta.get("material_tone_ramps", {}).get(material_id, {})
+        ramp = ramp_meta.get("tone_ramp", [])
+        used_roles = [entry["role"] for entry in ramp if _hex_to_rgb(entry["color"]) in opaque_colors]
+        minimum = int(ramp_meta.get("minimum_tone_roles", 0))
+        tone_usage[material_id] = {
+            "used_roles": used_roles,
+            "used_role_count": len(used_roles),
+            "minimum_tone_roles": minimum,
+        }
+        if ramp_meta.get("audit_tone_usage") and len(used_roles) < minimum:
+            warnings.append(
+                f"material {material_id} uses {len(used_roles)}/{minimum} required tone roles; "
+                "flat-shading review required"
+            )
     color_count = len(opaque_colors)
     if contract.get("max_colors") is not None and color_count > int(contract["max_colors"]):
         errors.append(f"opaque color count {color_count} exceeds max {contract['max_colors']}")
@@ -203,7 +233,7 @@ def audit_native_png(
     bbox = image.getchannel("A").getbbox()
     if contract["asset_class"] == "character_frame" and bbox and bbox[3] != image.height:
         errors.append("character feet must reach the y=96 canvas boundary (last opaque row y=95)")
-    if profile["palette"]["approval_status"] != "approved":
+    if not palette_is_approved(profile["palette"]["approval_status"]):
         warnings.append("project RGB palette is provisional; runtime release remains blocked")
     return {
         "schema_version": 1,
@@ -222,6 +252,7 @@ def audit_native_png(
             "unregistered_colors": [list(color) for color in unregistered[:64]],
             "content_bbox": list(bbox) if bbox else None,
             "palette": palette_meta,
+            "material_tone_usage": tone_usage,
         },
     }
 
