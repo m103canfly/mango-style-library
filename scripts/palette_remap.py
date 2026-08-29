@@ -2,8 +2,10 @@
 """Remap RGBA artwork to the project's shared palette hierarchy.
 
 The output palette is deterministic: Master Palette plus an optional Region Accent
-Palette and one or more Special Palettes. Alpha is preserved and transparent
-pixels are never allowed to influence color selection.
+Palette and one or more Special Palettes. Alpha is hardened to 0/255 and
+transparent pixels are never allowed to influence color selection. This is a
+candidate/reference helper; native Tingen 1x delivery is validated against
+declared material sub-palettes and is not globally nearest-color quantized.
 
 Examples:
     python scripts/palette_remap.py input.png output.png
@@ -94,18 +96,20 @@ def _pillow_palette(palette: np.ndarray) -> Image.Image:
 
 def remap_image(image: Image.Image, palette: np.ndarray, dither: bool = False) -> Image.Image:
     rgba = image.convert("RGBA")
-    alpha = rgba.getchannel("A")
+    alpha_array = np.asarray(rgba.getchannel("A"))
+    hard_alpha = Image.fromarray(np.where(alpha_array >= 128, 255, 0).astype(np.uint8), "L")
     if dither:
         rgb = rgba.convert("RGB").quantize(
             palette=_pillow_palette(palette),
             dither=Image.Dither.FLOYDSTEINBERG,
         ).convert("RGB")
         out = rgb.convert("RGBA")
-        out.putalpha(alpha)
+        out.putalpha(hard_alpha)
         return out
 
     array = np.asarray(rgba).copy()
-    opaque = array[..., 3] > 0
+    array[..., 3] = np.asarray(hard_alpha)
+    opaque = array[..., 3] == 255
     if opaque.any():
         array[..., :3][opaque] = _nearest_palette(array[..., :3][opaque], palette)
     array[..., :3][~opaque] = 0

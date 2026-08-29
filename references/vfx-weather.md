@@ -55,7 +55,7 @@ background, no ground, game asset animation strip
 **优先后处理罩色，不重新生成**（省配额且零漂移）：
 
 1. Godot 里 CanvasModulate 罩色：白昼 #FFFFFF / 黄昏 #F0C8A0 / 夜晚 #6B7FA8 / 雾天 #C8D4D4
-2. 雾天加一层半透明雾 sprite（上面的灰雾配方，放大平铺，低透明度缓慢平移）
+2. 雾天软雾由 Godot Shader/CanvasModulate 统一实现；若专项合同要求雾 Sprite，源 PNG 仍使用 0/255 硬 Alpha，运行时透明度由节点属性控制
 3. 夜晚灯光件单独提层：路灯/窗户改发光态（`lit windows` 变体图或引擎 PointLight2D）
 4. 只有"换季节"才重新生成（雪地弗萨克 vs 夏日费内波特这类本来就分资产）
 

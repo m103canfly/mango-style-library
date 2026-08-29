@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "palette_version": "tingen_pixel_v3_hd",
+  "approval_status": "provisional_pending_project_palette_import",
+  "common_material_ids": ["outline.shared"],
+  "materials": {
+    "outline.shared": {"colors": ["#2A211C", "#3B2B24", "#263348"]},
+    "stone.warm_dressed": {"colors": ["#7B6A52", "#A89572", "#C8B995", "#E8DCC0", "#F5EBD3"]},
+    "stone.cool_slate": {"colors": ["#263348", "#465672", "#5A6B7C", "#7E91A0", "#B8C4C4", "#E3E7E4"]},
+    "wood.warm": {"colors": ["#3B2B24", "#5A3826", "#6B3E1D", "#8B5A2B", "#B8793D", "#D8A15B"]},
+    "door.dark_green_civic": {"colors": ["#224D24", "#24452B", "#2E6B28", "#4E9B3A"]},
+    "glass.slate_blue": {"colors": ["#263348", "#465672", "#5A6B7C", "#7E91A0", "#B8C4C4"]},
+    "iron.black_cast": {"colors": ["#2A211C", "#263348", "#3B2B24", "#465672"]},
+    "terrain.cobblestone": {"colors": ["#263348", "#465672", "#5A6B7C", "#7E91A0", "#A89572", "#B8C4C4", "#C8B995", "#E3E7E4", "#2A211C", "#3B2B24"]},
+    "terrain.grass": {"colors": ["#224D24", "#2E6B28", "#4E9B3A", "#78BC43", "#A8D94E", "#D4E66A", "#24452B", "#2A211C", "#3B2B24", "#7B541B"]},
+    "skin.fair": {"colors": ["#8C3D2E", "#E8A07C", "#F2C49B", "#FFD7B3"]},
+    "cloth.navy": {"colors": ["#263348", "#2E3A54", "#465672", "#5A6B7C", "#7E91A0"]},
+    "metal.warm_brass": {"colors": ["#7B541B", "#A87527", "#D9A441", "#F1CC65"]}
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "profile_id": "tingen_pixel_v3_hd",
+  "style_version": "tingen_pixel_v3_hd",
+  "status": "integration_ready_palette_approval_pending",
+  "native_scale": 1,
+  "format": "PNG",
+  "preview": {
+    "scale": 4,
+    "resample": "nearest",
+    "runtime_asset": false
+  },
+  "alpha": {
+    "policy": "hard_0_255",
+    "allowed_values": [0, 255]
+  },
+  "pixel_rules": {
+    "antialiasing": false,
+    "blurred_edges": false,
+    "smooth_gradients": false,
+    "fractional_coordinates": false
+  },
+  "lighting": {
+    "day_key_light": "upper_left",
+    "shadow_direction": "lower_right"
+  },
+  "projection": {
+    "type": "orthographic",
+    "perspective_convergence": false,
+    "north_is_up": true,
+    "road_plot_building_angles": [0, 90],
+    "planning_connection_angles": [45]
+  },
+  "palette": {
+    "palette_version": "tingen_pixel_v3_hd",
+    "registry": "assets/palettes/palettes.json",
+    "master": "mango-master-v1",
+    "region": "loen",
+    "region_palette": "region-loen-v1",
+    "material_registry": "assets/palettes/tingen-materials.json",
+    "approval_status": "provisional_pending_project_palette_import",
+    "runtime_release_blocked": true,
+    "note": "The exact project RGB registry was not supplied with the written standard. Current colors are a provisional mapping to the repository Master + Loen palette and must not be represented as the approved project palette."
+  },
+  "source_policy": {
+    "generated_image_role": "hd_reference_only",
+    "generated_image_may_be_resized_for_delivery": false,
+    "delivery_sources": [
+      "original_or_authorized",
+      "pixel_redraw_from_authorized_reference",
+      "pixel_redraw_from_generated_reference"
+    ]
+  },
+  "asset_classes": {
+    "terrain_tile": {
+      "dimension_policy": "exact",
+      "dimensions": [64, 64],
+      "tileable": true,
+      "typical_color_range": [10, 16]
+    },
+    "material_review_sample": {
+      "dimension_policy": "exact",
+      "dimensions": [192, 192],
+      "source_tile_dimensions": [64, 64],
+      "repeat_grid": [3, 3],
+      "must_be_exact_repeat": true
+    },
+    "character_frame": {
+      "dimension_policy": "exact",
+      "dimensions": [64, 96],
+      "anchor": [32, 96],
+      "anchor_coordinate_kind": "canvas_boundary",
+      "max_colors": 24,
+      "facings": ["south", "west", "east", "north"]
+    },
+    "facade_component": {
+      "dimension_policy": "task_exact_within_range",
+      "min_dimensions": [96, 96],
+      "max_dimensions": [192, 192],
+      "alignment": 16,
+      "typical_color_range": [16, 24]
+    },
+    "building_composite": {
+      "dimension_policy": "task_exact_within_range",
+      "min_dimensions": [384, 384],
+      "max_dimensions": [1024, 1024],
+      "alignment": 16
+    },
+    "landmark_composite": {
+      "dimension_policy": "task_exact_within_range",
+      "min_dimensions": [1024, 1024],
+      "max_dimensions": [2048, 2048],
+      "alignment": 16
+    },
+    "municipal_hall_tingen": {
+      "dimension_policy": "task_exact_within_range",
+      "min_dimensions": [1024, 1024],
+      "max_dimensions": [1536, 1536],
+      "alignment": 16,
+      "minimum_public_door_clear_width": 64
+    },
+    "ui": {"dimension_policy": "task_contract_required"},
+    "vfx": {"dimension_policy": "task_contract_required"},
+    "prop": {"dimension_policy": "task_contract_required"}
+  },
+  "animation": {
+    "directions": ["south", "west", "east", "north"],
+    "frame_size": [64, 96],
+    "anchor": [32, 96],
+    "anchor_coordinate_kind": "canvas_boundary",
+    "frame_counts": {
+      "idle": [4, 6],
+      "walk": [6, 8],
+      "run": [6, 8]
+    },
+    "world_speed_tiles_per_second": {
+      "walk": 2,
+      "run": 5
+    },
+    "animation_fps_controls_world_speed": false
+  },
+  "godot_import": {
+    "texture_filter": "nearest",
+    "mipmaps": false,
+    "compression": "lossless_or_project_approved_pixel_safe",
+    "repeat_default": false,
+    "repeat_only_when_declared_tileable": true,
+    "integer_node_position": true,
+    "integer_node_scale": true,
+    "infer_collision_from_alpha": false,
+    "infer_occlusion_from_alpha": false,
+    "infer_navigation_from_alpha": false
+  },
+  "delivery": {
+    "required_files": [
+      "<asset_name>_1x.png",
+      "<asset_name>_4x.png",
+      "manifest.json",
+      "audit.json",
+      "source_reference.json",
+      "import_contract.json"
+    ],
+    "image_pass_is_runtime_ready": false
+  }
+}

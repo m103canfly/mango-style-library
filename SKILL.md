@@ -1,21 +1,21 @@
 ---
 name: mango-style-library
-description: 为星露谷式俯视 2D 游戏生产风格统一、可审计、可回归的项目资产；覆盖分类 Gold Anchors、九地区 Scene Bible、固定调色板、纸娃娃/动画共享 transform、评分审查和 Godot 导出。用于批量资产、地域化资产、角色动作或 Godot-ready 原型；完整 HUD 场景只作为内部 review 资料。
+description: 为廷根项目生产风格统一、可审计、可回归的 2D 像素资产；覆盖 tingen_pixel_v3_hd 原生 1× 合同、分类 Gold Anchors、Scene Bible、材质子色板、四向人物动画、评分审查和 Godot 交付。生成式图片只作 HD 参考；完整 HUD 场景只作内部 review 资料。
 ---
 
 # Mango AI Art Direction System
 
-目标不是“生成一张好看的图”，而是让同一项目的资产能够复现、追溯、组合和回归。
+目标不是“生成一张好看的图”，而是让同一项目的资产能够复现、追溯、组合和回归。当前项目默认 Profile 是 `profiles/tingen_pixel_v3_hd/profile.json`。
 
 ## Release gate
 
 开始 production 任务前运行：
 
 ```bash
-python scripts/validate_anchor_pack.py --strict
+python scripts/validate_project_profile.py --strict
 ```
 
-只要五类 Category Gold Anchor 槽位未全部 approved，系统仍可用于生成 candidate 和验证管线，但不得把结果标为 production-ready 或声称 Anchor Pack 完整。不得用 Scene Bible 顶替缺失的分类锚。
+严格门同时检查分类 Gold Anchors 和廷根 RGB 色板批准状态。任一未满足时，系统仍可生成 HD reference、制作原生 1× candidate 和验证管线，但不得标 production/runtime-ready。
 
 ## Read before work
 
@@ -48,33 +48,52 @@ python scripts/validate_anchor_pack.py --strict
 
 Scene Bible 只定义地域建筑语言、宏观构图、气候植被与材料关系；不定义角色尺寸、纸娃娃对齐、动画、tile 接缝、孤立资产轮廓或 HUD 布局。
 
-## Generate
+## Generate HD reference
 
 图像生成只经 `scripts/gen_image.sh` 的后端适配层，不直接调用厂商 API。后端配置见 `references/harness-setup.md`。prompt 使用英文；文字、编号和符文留空，进引擎后叠字体。
 
+所有生成结果必须登记为 `generated_hd_reference`。它们只能决定设计、轮廓、材质分区和动作意图；禁止缩小、最近色量化或自动 fit 后直接交付。正式资产由像素画师在任务合同规定的原生 1× 画布重绘。
+
 每个源文件立即登记 `assets/asset-registry-template.csv` 要求的 prompt/model/backend/seed/source/anchor/scene/palette/version 字段。无 seed 的后端写 `unsupported`，不能留成未知。
 
-## Export
+## Candidate normalization and native delivery
 
-单件静态资产可用兼容命令：
+对 HD 参考做构图/共享 transform 诊断时可用兼容命令：
 
 ```bash
-python scripts/godot_export.py input.png building godot_assets --name loen_townhouse --region loen
+python scripts/godot_export.py input.png building reference_candidates --name loen_townhouse --region loen
 ```
 
-纸娃娃层和动画帧必须整组导出：
+HD 纸娃娃参考层和动画参考帧必须整组归一化：
 
 ```bash
-python scripts/godot_export.py group layer godot_assets \
+python scripts/godot_export.py group layer reference_candidates \
   base.png outfit.png hair.png acc.png \
   --group-id loen_man01_default \
   --name loen_man01_base --name loen_man01_outfit --name loen_man01_hair --name loen_man01_acc \
   --region loen
 ```
 
-组导出先统一源画布，再用 union bbox 只计算一次 scale/origin/baseline。`.transform.json` 的 `transform_id` 必须回填台账。禁止对同组成员逐图 bbox/fit。
+组导出先统一源画布，再用 union bbox 只计算一次 scale/origin/baseline。`.transform.json` 的 `transform_id` 必须回填台账。禁止对同组成员逐图 bbox/fit。该工具输出固定标记为 `reference_candidate_not_runtime_ready`。
 
-导出器默认映射到 `assets/palettes/palettes.json` 的 Master Palette；地区色用 `--region`，VFX/UI/神秘色用可重复的 `--special`。禁止逐图自由 64 色量化。
+候选导出器可映射到 `assets/palettes/palettes.json` 以便比较；这不能替代正式 1× 材质落色。复合资产禁止全图最近色量化。
+
+像素画师完成原生 1× PNG 后，使用项目打包器；它不会缩放运行时 PNG：
+
+```bash
+python scripts/package_asset.py input_1x.png deliveries \
+  --asset-id facade.municipal_hall.entrance_bay.v001 \
+  --asset-name municipal_hall_entrance_bay \
+  --asset-class facade_component \
+  --district-id tingen.district.golden_indus \
+  --material-id stone.warm_dressed --material-id door.dark_green_civic \
+  --material-id glass.slate_blue --material-id iron.black_cast \
+  --source-status pixel_redraw_from_generated_reference \
+  --task-contract contracts/municipal_hall_entrance_bay.json
+
+python scripts/validate_delivery.py \
+  deliveries/facade.municipal_hall.entrance_bay.v001
+```
 
 ## Review and regression
 
@@ -87,8 +106,16 @@ python scripts/motion_audit.py frame1.png frame2.png frame3.png --json motion.js
 每批运行固定色板审查，并把报告路径与结论写回台账：
 
 ```bash
-python scripts/palette_audit.py godot_assets --region loen --json palette.json
+python scripts/palette_audit.py reference_candidates --region loen --json palette.json
 ```
+
+六维审查输入必须逐项附证据，再由评分器计算统一 verdict：
+
+```bash
+python scripts/art_score.py review-input.json --json review.json
+```
+
+把资产标为 `approved_1x` 或 `runtime_validation_pending` 时，`package_asset.py` 必须带 `--review-json review.json`；candidate 不得伪造批准状态。
 
 修改脚本、规范、palette、anchor 或 gold fixture 后运行：
 
@@ -96,7 +123,7 @@ python scripts/palette_audit.py godot_assets --region loen --json palette.json
 bash scripts/run_art_regression.sh
 ```
 
-APPROVE 要求总分 ≥90 且无 critical fail；Gold Anchor 晋升要求 ≥92。REVIEW 不能进入 Gold 或 production，REJECT 必须重做/回退。
+APPROVE 要求总分 ≥90 且无 critical fail；Gold Anchor 晋升要求 ≥92。REVIEW 不能进入 Gold 或 production，REJECT 必须重做/回退。技术图片通过仍不等于 `runtime_ready`，还必须验证入口、碰撞、导航和同屏比例。
 
 ## Scene Bible maintenance
 
@@ -111,5 +138,5 @@ python scripts/import_scene_bible.py --source-dir <场景包目录>
 ## Delivery boundary
 
 - Scene Bible、HUD review 图和候选锚是内部资料，不进 Godot、不作宣传图。
-- 对外交付只包括经固定 palette、目标画布、provenance 和评分审查的 `godot_assets/` 资产。
-- AI 直出是原型品质；正式发行品质仍需美术逐像素精修和 in-engine vertical slice 验证。
+- 对外交付只包括符合 `tingen_pixel_v3_hd` 标准目录、provenance 和评分审查的原生 1× 资产。
+- AI 直出始终是 HD 参考；正式发行品质必须逐像素重绘并通过 in-engine vertical slice。

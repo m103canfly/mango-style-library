@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Export generated PNGs to stable Godot canvases.
+"""Normalize generated HD references into stable candidate canvases.
+
+This tool is deliberately not the Tingen runtime-delivery path. Generated
+images remain HD references/candidates even after normalization. Native 1x
+pixel-authored assets use package_asset.py and validate_delivery.py instead.
 
 Single-image mode remains backward compatible:
     python scripts/godot_export.py input.png character out --name hero
@@ -34,14 +38,14 @@ from palette_remap import DEFAULT_PALETTE, build_palette, load_palette_config, r
 
 # category: (canvas_w, canvas_h, resize_mode, anchor)
 CANVAS = {
-    "tile": (32, 32, "stretch", "center"),
+    "tile": (64, 64, "stretch", "center"),
     "icon": (32, 32, "fit", "center"),
     "ui": (256, 128, "fit", "center"),
-    "character": (32, 48, "fit", "bottom"),
-    "layer": (32, 48, "fit", "bottom"),
+    "character": (64, 96, "fit", "bottom"),
+    "layer": (64, 96, "fit", "bottom"),
     "portrait": (64, 64, "fit", "center"),
-    "building": (128, 128, "fit", "bottom"),
-    "building_l": (256, 256, "fit", "bottom"),
+    "building": (384, 384, "fit", "bottom"),
+    "building_l": (1024, 1024, "fit", "bottom"),
     "plant": (64, 64, "fit", "bottom"),
     "prop": (64, 64, "fit", "center"),
     "vehicle": (160, 128, "fit", "bottom"),
@@ -50,10 +54,7 @@ CANVAS = {
 
 WM_X, WM_H = 0.30, 0.10
 ALPHA_THRESHOLD = 64
-RESAMPLING = {
-    "nearest": Image.Resampling.NEAREST,
-    "lanczos": Image.Resampling.LANCZOS,
-}
+RESAMPLING = {"nearest": Image.Resampling.NEAREST}
 
 
 def sha256_file(path: str | Path) -> str:
@@ -94,7 +95,7 @@ def clean_image(
         if category == "tile":
             image = repair_tile_watermark(image)
     array = np.asarray(image).copy()
-    array[array[..., 3] < alpha_threshold, 3] = 0
+    array[..., 3] = np.where(array[..., 3] >= alpha_threshold, 255, 0).astype(np.uint8)
     array[..., :3][array[..., 3] == 0] = 0
     return Image.fromarray(array, "RGBA")
 
@@ -149,6 +150,8 @@ def compute_shared_transform(
             "origin": [0, 0],
             "anchor": anchor,
             "baseline": None,
+            "runtime_anchor": [target_width // 2, target_height // 2],
+            "anchor_coordinate_kind": "canvas_boundary",
             "padding": 0,
         }
 
@@ -184,6 +187,8 @@ def compute_shared_transform(
         "origin": [origin_x, origin_y],
         "anchor": anchor,
         "baseline": effective_baseline if anchor == "bottom" else None,
+        "runtime_anchor": [target_width // 2, target_height if anchor == "bottom" else target_height // 2],
+        "anchor_coordinate_kind": "canvas_boundary",
         "padding": padding,
     }
 
@@ -191,7 +196,7 @@ def compute_shared_transform(
 def apply_shared_transform(
     image: Image.Image,
     transform: dict,
-    resample: str = "lanczos",
+    resample: str = "nearest",
 ) -> Image.Image:
     cropped = image.crop(tuple(transform["union_bbox"]))
     resized = cropped.resize(tuple(transform["resized"]), RESAMPLING[resample])
@@ -276,6 +281,9 @@ def process_group(
         "palette": palette_metadata,
         "transform": transform,
         "members": members,
+        "source_kind": "generated_hd_reference",
+        "lifecycle_status": "reference_candidate_not_runtime_ready",
+        "delivery_eligible": False,
     }
     transform_payload = json.dumps(metadata, sort_keys=True, ensure_ascii=False).encode("utf-8")
     metadata["transform_id"] = "transform-" + hashlib.sha256(transform_payload).hexdigest()[:12]
@@ -312,7 +320,7 @@ def _add_common_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--alpha-threshold", type=int, default=ALPHA_THRESHOLD)
     parser.add_argument("--padding", type=int, default=0)
     parser.add_argument("--baseline", type=int, default=None)
-    parser.add_argument("--resample", choices=sorted(RESAMPLING), default="lanczos")
+    parser.add_argument("--resample", choices=sorted(RESAMPLING), default="nearest")
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -351,7 +359,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 0
 
-    parser = argparse.ArgumentParser(description="Generated PNG to Godot-ready pixel asset")
+    parser = argparse.ArgumentParser(description="Generated HD reference to non-runtime candidate canvas")
     parser.add_argument("input")
     parser.add_argument("category", choices=sorted(CANVAS))
     parser.add_argument("out_dir")

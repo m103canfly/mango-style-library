@@ -1,6 +1,6 @@
 # 配方：建筑（地标/公共/住宅/零部件）+ 道路 + 地板 tile + 室内套件
 
-生成前从本文件复制配方改造。所有 prompt 用英文，招牌文字可指定中文。国家的地域变体注入块见 `references/world-nations.md`；尺寸比例见 `references/art-direction.md`。
+生成前从本文件复制配方改造。所有 prompt 用英文；文字留空，进入引擎后叠加。国家的地域变体注入块见 `references/world-nations.md`；尺寸比例见 `references/art-direction.md`。本文件生成的全部图片都是 HD 参考，正式建筑与 tile 必须按任务精确尺寸原生 1× 重绘。
 
 ## 目录
 
@@ -39,7 +39,7 @@ a signboard with Chinese text '<中文名>', + 通用资产后缀
 
 **两个已验证补充（2026-08 贝克兰德证交所）**：
 - **俯视场景用的建筑必须带屋顶坡面**——纯正面立面缺屋顶，拼进俯视场景像纸板房。配方在类型词后加：`in slight top-down view with a large visible roof — the upper part is a big <屋顶材质> roof slope tilted toward the viewer with shingle texture`（住宅为 `<材质> gable roof`）。视角词放句首附近、不带正面建筑参考图，否则锚回立面。
-- **大型公共建筑导出用 `building_l`（256×256）**：柱廊+大屋顶+台阶+招牌全塞进 128 会把门洞压到 40px 以下，角色进不了门。
+- **大型公共建筑先立任务合同**：建筑组合范围 384–1024px、地标 1024–2048px；廷根市政厅为 1024–1536px 专项范围。范围内必须先选定精确尺寸，不能让导出器自动 fit。公共门洞净宽至少 64px。
 
 ## 住宅矩阵（户型×材质变体）
 
@@ -98,16 +98,17 @@ tileable texture, game asset tile
 ## 验收清单
 
 - [ ] 块状硬边像素、明亮饱和色，无软笔触
-- [ ] 透明底、无地面、无投影
+- [ ] 孤立组件透明底；全幅 tile 为不透明边到边纹理；Alpha 只有 0/255
 - [ ] 纯正面立面，未漂 3/4
 - [ ] 国家注入块识别物命中（对照 world-nations 速查表）
 - [ ] 招牌中文逐字核对无错字
 - [ ] 纹理充满方形、四边近似可对拼
-- [ ] 门洞高度 ≥ 角色高度（对照 art-direction 比例表）
+- [ ] 公共建筑门洞净宽 ≥64px；高度、入口交互和碰撞按专项合同验证
 
 ## 修方
 
-- **tile 导出后是空图/全透明**：透明底生成全幅纹理的 alpha 失效事故（2026-08 实测）。tile 一律 `--background opaque` 重生成，生成后先验文件大小（>100KB）与 RGB 均值再进管线；godot_export.py 会对 tile 水印区做镜像填补而非擦除
+- **tile 参考空图/全透明**：HD tile 参考一律 opaque 生成；但它仍只能用于像素画师重绘 64×64 原生 tile。192×192 材质审核样板必须由最终 64×64 成品精确重复 3×3，不能从 HD 参考重新采样。
+- **材质混色**：石材、木材、玻璃、铁艺分别绑定 `assets/palettes/tingen-materials.json` 的 material id。正式复合资产按材质落色，禁止整栋建筑全图最近色量化。
 - **视角漂成 3/4**：删否定词，换 `flat 2D, slight top-down Stardew Valley view, symmetrical composition, object centered in frame, chunky readable pixels, limited color palette`
 - **纹理不对拼**：取图中心 1/2 区域裁切后人工做镜像/错缝变体，或仅作重绘参考
 - **招牌错字**：文字加引号强调；仍错则出空白招牌，引擎里用字体叠字

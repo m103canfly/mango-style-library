@@ -1,86 +1,86 @@
-# Character Motion Standard
+# 廷根人物动作标准（tingen_pixel_v3_hd）
 
-本文件定义 32×48 角色的正面/背面/侧面行走硬规则。生成提示词只能帮助草图接近这些规则；最终验收以共享 transform 导出后的逐帧像素为准。
+本文件定义项目原生 1×、64×96 人物动画的硬规则。生成式图像只能提供 HD 动作参考；最终动画必须由像素画师按本标准重绘，不能把生成图缩小后直接交付。
 
-## Canonical frame set
+## 标准动画合同
 
-- 画布：每帧 32×48，透明背景。
-- 方向：`down`、`right`、`up` 三行；`left` 运行时镜像 `right`。
-- 每行 3 个唯一帧：`contact/idle`、`passing-A`、`passing-B`。
-- 播放：F1 → F2 → F1 → F3；推荐 160–220ms/帧，移动速度与脚步相位在引擎中联调。
-- 同一方向的所有帧必须使用一次 asset-group 导出，共享 union bbox、scale、origin、baseline。
+- 每帧：完整 64×96 RGBA PNG；Alpha 只能是 0 或 255。
+- 方向：至少 `south / west / east / north` 四向。不得以运行时镜像代替 west 或 east 的正式资产。
+- 待机：每方向 4–6 帧。
+- 步行：每方向 6–8 帧。
+- 跑步：每方向 6–8 帧。
+- 所有方向、所有帧共享脚底锚点 `(32,96)`，坐标种类为 `canvas_boundary`；最后一个可见像素行是 y=95。
+- 所有帧都是完整姿势。禁止裁取脚、袖子、头发或衣摆后机械平移冒充动画。
+- 动画 FPS 只控制动作播放。世界移动速度由 Godot 节点独立控制：步行 2 格/秒，跑步 5 格/秒。
 
-## Global invariants
+## 机械审计阈值
 
-| 项目 | 硬规则 | REVIEW 区间 | REJECT |
-|---|---|---|---|
-| foot baseline | 接触地面的脚底 y=47 | 漂移 1px | 漂移 ≥2px |
+| 项目 | APPROVE | REVIEW | REJECT |
+|---|---:|---:|---:|
+| foot anchor | 每帧 `(32,96)` | — | 任一帧不落 y=96 边界 |
+| foot baseline drift | ≤1px | — | >2px；1–2px 需人工确认 |
 | bbox height variance | ≤10% | 10–20% | >20% |
 | bbox width variance | ≤18% | 18–36% | >36% |
-| centroid drift | ≤3px | 3–6px | >6px |
+| centroid drift | ≤6px | 6–12px | >12px |
 | adjacent silhouette overlap | ≥0.52 | 0.32–0.52 | <0.32 |
-| head vertical motion | 0–1px | 2px | >2px |
-| hip vertical motion | 0–1px | 2px | >2px |
+| head vertical motion | 0–2px | 3–4px | >4px |
+| hip vertical motion | 0–2px | 3–4px | >4px |
 
-`motion_audit.py` 负责前五项的机械筛查；头部、髋部与动作可读性仍需人工看图。
+`motion_audit.py` 负责画布、帧数、bbox、质心、脚底边界和轮廓重叠。头部、髋部、支撑脚身份和表演仍需人工看图。
 
-## Front and back walk
+## South / north 行走
 
-正面/背面因为腿部被躯干遮挡，不能靠整体放大缩小制造运动。
+- contact：双脚接近中线，重心位于支撑脚上方。
+- passing-A：左腿前出、右腿后收；脚尖纵向差 4–8px，手臂与腿反相。
+- passing-B：与 A 相位相反；不能复用 A 后只移动整条腿。
+- 最大步幅：双脚最远分离 8–14px；超过 16px 需要专项动作合同。
+- 躯干水平摆动 0–2px；禁止整身左右漂移超过 4px。
+- 头部和髋部允许 0–2px 垂直 bob，不得逐帧缩放。
+- 裙摆或大衣下摆可随跨步展开 2–4px，但肩宽、头宽和主轮廓身份必须稳定。
 
-- 接触帧：双脚接近中线，一只脚可前出 1px；身体重心居中。
-- passing-A：左腿前出、右腿后收；脚尖水平差 2–4px；左臂与右腿反相。
-- passing-B：与 A 镜像；不得复用 A 后只改 1 个像素。
-- 步幅：左右脚最远横向分离 4–7px；超过 8px 会破坏二头身半比例。
-- 躯干：水平摆动 0–1px；禁止整身左右漂移超过 2px。
-- 头部：保持大小和五官中心；允许垂直 0–1px 的 bob，禁止逐帧缩放。
-- 髋部：允许 0–1px 垂直位移；不得用髋部上下跳 3px 代替腿部相位。
-- 轮廓：裙摆/大衣下摆可随跨步打开 1–2px，但肩宽和头宽保持稳定。
+## West / east 行走
 
-## Side walk
-
-侧面帧必须让腿部相位在轮廓上可读。
-
-- contact/idle：支撑脚落地，另一脚靠近；脚底 y=47。
-- passing-A：前脚向行进方向伸出 3–5px，后脚离地 1px；身体重心位于支撑脚上方 ±1px。
-- passing-B：相位反转；后腿变前腿，双脚颜色/轮廓不能互相吞没。
-- 手臂摆动：与腿反相，手部前后差 2–4px；手持固定道具时优先保持道具稳定，可减少同侧手臂摆幅。
-- 头部朝向、鼻尖、帽檐和发型轮廓不得在 A/B 帧换形。
-- 身体前倾最多 1px；禁止用整身旋转或剪切产生走路感。
+- contact：支撑脚落在 y=96 边界，另一脚接近。
+- passing：前脚向行进方向伸出 6–10px，后脚离地 1–2px；重心位于支撑脚上方 ±2px。
+- 手臂与腿反相，前后差 4–8px。固定手持物优先稳定道具轮廓，可缩小同侧手臂摆幅。
+- 鼻尖、帽檐、发型和头部朝向不能在帧间换形。
+- 身体前倾最多 2px；禁止整身旋转、剪切或缩放产生走路感。
+- east 与 west 都必须交付；不对称制服、手持物和伤痕不能靠镜像猜测。
 
 ## Foot lock
 
-Foot lock 是“支撑脚接触地面时不在屏幕上滑动”。
+Foot lock 是支撑脚接触地面时，接地点不在画布内滑动。
 
-1. 在 A 帧标记支撑脚接地点 `(x,47)`。
-2. 到下一接触/站立帧前，该点在画布中的水平位移不超过 1px。
-3. 角色世界移动由 Godot 节点完成，sprite 内不要让两只脚同时向后滑。
-4. 动画循环首尾的支撑脚位置差不超过 1px。
+1. 为每个 contact 帧标记支撑脚接地点 `(x,96)`。
+2. 到下一 passing/contact 相位前，该支撑脚接地点水平漂移不超过 1px。
+3. 动画循环首尾的同一支撑脚位置差不超过 1px。
+4. 角色世界位移由 Godot 节点完成，Sprite 内不得让两脚同时向后滑。
 
-`motion_audit.py` 可检查 baseline，但 foot lock 的脚身份与接地点仍需人工标记。
+脚身份和接地点必须在人工审查记录中标注；单靠 Alpha bbox 无法判断是哪只脚。
 
-## Silhouette and identity
+## Silhouette 与身份
 
-- 放大到 800% 时，头、躯干、前后腿和至少一只手必须能分辨。
-- 缩回 100% 时，A/B 两个跨步相位不依赖五官或纽扣细节也能区分。
-- 帽子、头发外轮廓、肩宽、衣摆主形不得在帧间换设计。
-- 面积较小的装饰可以抖动 1px，但不能成为重心漂移来源。
-- 不对称装备需要单独的 left 变体；若运行时镜像会产生剧情/操作错误，不得沿用标准镜像规则。
+- 800% Nearest 预览下，头、躯干、前后腿和至少一只手可区分。
+- 100% 下，相邻相位无需依赖五官、纽扣或纹理细节即可辨认。
+- 帽子、发型、肩宽、衣摆和手持物主形不能在帧间换设计。
+- 小装饰允许 1px 抖动，但不能造成主体质心漂移。
+- 禁止抗锯齿、透明软边、平滑渐变和子像素位移。
 
-## Export and audit
+## 导出与审计
 
-帧条切分后不要逐帧调用旧式 fit。一次传入同方向全部帧：
+正式 1× 帧不能经过 bbox/fit 或缩放。以每方向 6–8 张完整 64×96 帧直接审计：
 
 ```bash
-python scripts/godot_export.py group character godot_assets \
-  down_f1.png down_f2.png down_f3.png \
-  --group-id player_walk_down --name player_down_1 --name player_down_2 --name player_down_3
-
 python scripts/motion_audit.py \
-  godot_assets/character/player_down_1.png \
-  godot_assets/character/player_down_2.png \
-  godot_assets/character/player_down_3.png \
-  --json godot_assets/character/player_walk_down.motion.json
+  south_01.png south_02.png south_03.png south_04.png south_05.png south_06.png \
+  --animation-type walk --json south_walk.motion.json
 ```
 
-导出 sidecar 中的 `transform_id` 和 motion score/verdict 必须写入资产台账。
+完整四向 Sheet 必须按 `south / west / east / north` 四行排列：
+
+```bash
+python scripts/motion_audit.py --sheet npc_walk.png --hframes 6 --vframes 4 \
+  --animation-type walk --json npc_walk.motion.json
+```
+
+若只是对生成式 HD 参考做候选归一化，可以使用 `godot_export.py group character` 检查共享 transform；该输出仍是 `reference_candidate_not_runtime_ready`，不能进入标准交付目录。

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-style-library.local/schemas/import-contract.schema.json",
+  "title": "Tingen Godot Import Contract",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["texture_filter", "mipmaps", "compression", "repeat", "integer_position", "integer_scale", "runtime_validation"],
+  "properties": {
+    "texture_filter": {"const": "nearest"},
+    "mipmaps": {"const": false},
+    "compression": {"enum": ["lossless", "project_approved_pixel_safe"]},
+    "repeat": {"type": "boolean"},
+    "integer_position": {"const": true},
+    "integer_scale": {"const": true},
+    "runtime_validation": {
+      "type": "object",
+      "required": ["entrance", "collision", "navigation", "same_screen_scale", "status"],
+      "properties": {
+        "entrance": {"type": "boolean"},
+        "collision": {"type": "boolean"},
+        "navigation": {"type": "boolean"},
+        "same_screen_scale": {"type": "boolean"},
+        "status": {"enum": ["pending", "passed", "failed"]}
+      }
+    }
+  }
+}

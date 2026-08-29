@@ -20,10 +20,19 @@ from PIL import Image
 DEFAULT_THRESHOLDS = {
     "bbox_width_variance": 0.18,
     "bbox_height_variance": 0.10,
-    "centroid_drift_px": 3.0,
+    "centroid_drift_px": 6.0,
     "foot_baseline_drift_px": 1.0,
     "silhouette_overlap_min": 0.52,
 }
+
+ANIMATION_FRAME_COUNTS = {
+    "idle": (4, 6),
+    "walk": (6, 8),
+    "run": (6, 8),
+}
+PROJECT_FRAME_SIZE = (64, 96)
+PROJECT_FOOT_ANCHOR_Y = 96
+PROJECT_DIRECTIONS = ("south", "west", "east", "north")
 
 
 def split_sheet(path: str | Path, hframes: int, vframes: int, row: int | None = None) -> list[Image.Image]:
@@ -64,6 +73,7 @@ def _mask_and_geometry(image: Image.Image, alpha_threshold: int) -> dict:
         "height": bbox[3] - bbox[1],
         "centroid": (float(xs.mean()), float(ys.mean())),
         "foot_baseline": bbox[3] - 1,
+        "foot_anchor_y": bbox[3],
         "area": int(mask.sum()),
     }
 
@@ -89,6 +99,9 @@ def audit_frames(
     frames: Sequence[Image.Image],
     alpha_threshold: int = 64,
     thresholds: dict | None = None,
+    animation_type: str | None = None,
+    expected_canvas: tuple[int, int] = PROJECT_FRAME_SIZE,
+    expected_foot_anchor_y: int = PROJECT_FOOT_ANCHOR_Y,
 ) -> dict:
     if len(frames) < 2:
         raise ValueError("motion audit requires at least two frames")
@@ -121,6 +134,16 @@ def audit_frames(
     }
     failures = []
     reject_failures = []
+    if expected_canvas and frames[0].size != expected_canvas:
+        reject_failures.append("canvas_size")
+    if animation_type:
+        if animation_type not in ANIMATION_FRAME_COUNTS:
+            raise ValueError(f"unknown animation type {animation_type!r}")
+        minimum, maximum = ANIMATION_FRAME_COUNTS[animation_type]
+        if not minimum <= len(frames) <= maximum:
+            reject_failures.append("frame_count")
+    if any(item["foot_anchor_y"] != expected_foot_anchor_y for item in geometry):
+        reject_failures.append("foot_anchor_y")
     for key in ("bbox_width_variance", "bbox_height_variance", "centroid_drift_px", "foot_baseline_drift_px"):
         if metrics[key] > limits[key]:
             failures.append(key)
@@ -131,6 +154,8 @@ def audit_frames(
     if metrics["silhouette_overlap_min"] < max(0.0, limits["silhouette_overlap_min"] - 0.20):
         reject_failures.append("silhouette_overlap_min")
 
+    failures = list(dict.fromkeys(failures))
+    reject_failures = list(dict.fromkeys(reject_failures))
     verdict = "REJECT" if reject_failures else ("REVIEW" if failures else "APPROVE")
     penalty = 0.0
     for key in ("bbox_width_variance", "bbox_height_variance", "centroid_drift_px", "foot_baseline_drift_px"):
@@ -142,7 +167,11 @@ def audit_frames(
         "verdict": verdict,
         "score": max(0, round(100 - penalty)),
         "frame_count": len(frames),
+        "animation_type": animation_type,
         "canvas": list(frames[0].size),
+        "expected_canvas": list(expected_canvas),
+        "expected_foot_anchor": [expected_canvas[0] // 2, expected_foot_anchor_y],
+        "anchor_coordinate_kind": "canvas_boundary",
         "alpha_threshold": alpha_threshold,
         "thresholds": limits,
         "metrics": {key: round(value, 4) for key, value in metrics.items()},
@@ -153,6 +182,7 @@ def audit_frames(
                 "bbox": list(item["bbox"]),
                 "centroid": [round(value, 3) for value in item["centroid"]],
                 "foot_baseline": item["foot_baseline"],
+                "foot_anchor_y": item["foot_anchor_y"],
                 "area": item["area"],
             }
             for item in geometry
@@ -167,18 +197,51 @@ def main() -> int:
     parser.add_argument("--hframes", type=int, default=None)
     parser.add_argument("--vframes", type=int, default=1)
     parser.add_argument("--row", type=int, default=None)
+    parser.add_argument("--animation-type", choices=sorted(ANIMATION_FRAME_COUNTS), default="walk")
     parser.add_argument("--alpha-threshold", type=int, default=64)
     parser.add_argument("--json", dest="json_path", default=None)
     args = parser.parse_args()
     if args.sheet:
         if not args.hframes:
             parser.error("--sheet requires --hframes")
+        if args.row is None:
+            if args.vframes != 4:
+                parser.error("complete character sheets require exactly four direction rows")
+            direction_results = {
+                direction: audit_frames(
+                    split_sheet(args.sheet, args.hframes, args.vframes, row_index),
+                    alpha_threshold=args.alpha_threshold,
+                    animation_type=args.animation_type,
+                )
+                for row_index, direction in enumerate(PROJECT_DIRECTIONS)
+            }
+            severity = {"APPROVE": 0, "REVIEW": 1, "REJECT": 2}
+            verdict = max(
+                (result["verdict"] for result in direction_results.values()),
+                key=severity.__getitem__,
+            )
+            result = {
+                "schema_version": 1,
+                "verdict": verdict,
+                "animation_type": args.animation_type,
+                "directions": list(PROJECT_DIRECTIONS),
+                "direction_audits": direction_results,
+            }
+            payload = json.dumps(result, indent=2, ensure_ascii=False)
+            if args.json_path:
+                Path(args.json_path).write_text(payload, encoding="utf-8")
+            print(payload)
+            return severity[verdict]
         frames = split_sheet(args.sheet, args.hframes, args.vframes, args.row)
     else:
         if len(args.frames) < 2:
             parser.error("provide at least two frame PNGs or use --sheet")
         frames = [Image.open(path).convert("RGBA") for path in args.frames]
-    result = audit_frames(frames, alpha_threshold=args.alpha_threshold)
+    result = audit_frames(
+        frames,
+        alpha_threshold=args.alpha_threshold,
+        animation_type=args.animation_type,
+    )
     payload = json.dumps(result, indent=2, ensure_ascii=False)
     if args.json_path:
         Path(args.json_path).write_text(payload, encoding="utf-8")

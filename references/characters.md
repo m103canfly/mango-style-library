@@ -1,144 +1,120 @@
-# 配方：人物系统（纸娃娃分层 / 完整 NPC / 对话头像 / 多帧动作）
+# 配方：廷根人物、纸娃娃与动作参考
 
-人物产物分三层，按需求选管线。尺寸与叠层规范见 `references/art-direction.md`；各国服设注入块见 `references/world-nations.md`。所有 prompt 用英文。
+人物正式资产遵循 `tingen_pixel_v3_hd`：原生 1×、64×96、脚底锚点 `(32,96)`。本文件中的生图 prompt 只生产 HD 参考，不生产可直接导入 Godot 的最终 Sprite。
 
-## 目录
+## 生产分层
 
-- 纸娃娃分层管线（可换装，本项目默认）
-- 完整 NPC 直出 + 锁角色换装
-- 对话头像立绘（首饰/面部细节承载层）
-- 多帧动作 sprite sheet
-- 验收清单
-- 修方
-
-## 纸娃娃分层管线（可换装）
-
-**分工共识：AI 出层草图 → 同画布对齐（godot_export 保证）→ Aseprite 人工擦层间残边。** AI 很难只画单层而把其余留空，常把素体也画上——这是已知短板，靠后处理与人工兜底，验收时如实报告。
-
-### 第 1 步：素体 base（每国×男女各一，用户确认"就是他/她"后存档）
-
-```
-A single game asset sprite: paper-doll base body of one <国家> <man/woman>, <skin tone>
-skin, <体型>, simple grey underwear, standing straight, front view, arms slightly apart,
-full body, simple face with dot eyes, Stardew Valley style pixel art, clean chunky 16-bit
-pixel art, bright saturated colors, isolated on transparent background, no ground,
-no shadow, crisp clean edges, game asset
+```text
+approved character Gold Anchor
+        ↓
+生成式 HD 角色/动作参考
+        ↓
+像素画师在固定 64×96 画布重绘
+        ↓
+纸娃娃叠层 / motion / palette / alpha 审计
+        ↓
+package_asset.py 标准交付
 ```
 
-参数：`--ratio 2:3 --resolution 1K --background transparent`。肤色锚点：鲁恩/因蒂斯 `fair skin`、弗萨克 `pale skin`、费内波特 `olive skin`、拜朗本地 `tan brown skin`、高地 `warm brown skin`。
+不得把生成图交给 `godot_export.py` 缩到 64×96 后冒充 1× 成品。`godot_export.py` 只生成带有 `reference_candidate_not_runtime_ready` 标记的候选画布。
 
-### 第 2 步：生成层（必须带素体参考图）
+## 角色 HD 参考
 
-素体 `image-to-url` 后，每层一次生成：
+### 素体参考
 
+```text
+A high-definition visual reference for one <region> <man/woman>, <skin tone>,
+<body type>, neutral underwear, standing straight, full body, front view,
+arms separated from torso, clear readable silhouette, simple face, orthographic
+2D game character design, upper-left key light, lower-right shadow planes,
+transparent background, no ground, no cast shadow, no text, no UI
 ```
-paper-doll clothing layer for the exact character in the reference image: only the
-<服装/发型/首饰描述，从 world-nations 服设矩阵取>, same body proportions, same position,
-same pose, everything except the <layer 名> fully transparent, Stardew Valley style
-pixel art, clean chunky 16-bit pixel art, bright saturated colors, front view,
-transparent background, no shadow, game asset
+
+素体参考确认身份、头身比、正面轮廓和服装覆盖边界。它不是 1× 素体层。
+
+### 层参考
+
+每个层参考都绑定相同素体参考与 approved character Gold Anchor：
+
+```text
+High-definition paper-doll layer reference for the exact character in the
+reference image: only the <outfit / hair / accessory>, same pose, proportions,
+canvas placement and silhouette logic, everything else transparent,
+orthographic 2D game design, upper-left key light, no ground, no text, no UI
 ```
 
-层类型与命名（z-order 从下到上）：
-1. `outfit` 服装层：礼服/风衣/工作服等场合装（服设矩阵见 world-nations）
-2. `hair` 发型层：`only the hairstyle, <颜色/样式>`
-3. `acc` 首饰/手持层：`only the <pocket watch chain / brooch / cane / necklace>`（全身像仅示意，细节看头像）
+像素画师在同一 64×96 文件中绘制 `base / outfit / hair / acc`，不做逐层 bbox/fit。层叠顺序：`base → outfit → hair → acc`。
 
-### 第 3 步：同画布导出与合成预览
+## 完整 NPC HD 参考
 
-base/outfit/hair/acc 必须作为一个 asset group 一次导出，不能逐层 bbox/fit：
+```text
+A high-definition full-body character reference of one <age/gender/occupation>
+NPC from Tingen, <hair>, <clothing>, <held object>, neutral standing pose,
+front view, orthographic 2D game design, clear silhouette, upper-left key light,
+lower-right shadow planes, transparent background, no ground, no cast shadow,
+no text, no UI
+```
+
+同一 NPC 换装必须绑定上一版 approved 角色资产，保持脸、发型、身材和主轮廓身份。生图结果只作为重绘参考。
+
+## 对话头像
+
+头像尺寸必须由专项任务合同规定；不能沿用旧版固定 64×64 假设。参考 prompt：
+
+```text
+A high-definition portrait reference of <character>, chest-up, <hair>,
+<jewelry>, <expression>, front view, orthographic 2D game portrait design,
+upper-left key light, transparent background, no text, no UI
+```
+
+## 四向动画参考
+
+完整规范见 `references/character-motion-standard.md`。至少四向：`south / west / east / north`；west/east 都要正式重绘，不能默认镜像。
+
+一次只生成一个方向的 HD 动作参考，建议让参考序列覆盖完整接触/下降/经过/上升相位：
+
+```text
+A high-definition animation reference sheet for the exact same character,
+<idle / walking / running>, <south/west/east/north> view, 8 clearly separated
+full-body poses in one horizontal row, complete limbs and garment in every pose,
+consistent proportions, outfit, face, palette intent and silhouette identity,
+orthographic 2D game design, transparent background, no ground, no shadow,
+no text, no UI
+```
+
+正式 1× 重绘帧数：待机 4–6，步行 6–8，跑步 6–8。所有帧完整 64×96，共享 `(32,96)`；不得切肢体后机械平移。
+
+## 审计与交付
+
+每方向先运行：
 
 ```bash
-python scripts/godot_export.py group layer godot_assets \
-  base.png outfit.png hair.png acc.png \
-  --group-id loen_man01_default \
-  --name loen_man01_base --name loen_man01_outfit --name loen_man01_hair --name loen_man01_acc \
-  --region loen
+python scripts/motion_audit.py frame_01.png frame_02.png frame_03.png \
+  frame_04.png frame_05.png frame_06.png --animation-type walk --json walk.motion.json
 ```
 
-导出器先把源图补到共同画布，再用 union bbox 计算一次 scale/origin/baseline；四层共享 32×48、脚底 y=47。合成预览：PIL 按 z-order 依次 paste（base→outfit→hair→acc）。`.transform.json` sidecar 必须写入资产台账。
+每个正式帧再进入标准交付：
 
-## 完整 NPC 直出 + 锁角色换装
-
-路人 NPC 不值得分层时用整条直出（省一道人工）：
-
+```bash
+python scripts/package_asset.py npc_walk_south_01.png deliveries \
+  --asset-id character.npc.walk.south.001.v001 \
+  --asset-name npc_walk_south_01 \
+  --asset-class character_frame \
+  --district-id tingen.district.golden_indus \
+  --facing south \
+  --material-id skin.fair --material-id cloth.navy \
+  --source-status pixel_redraw_from_generated_reference
 ```
-A single game asset sprite: one character sprite of <性别年龄> <职业>, <发型发色>,
-<服装细节>, <姿势/手持物>, full body, standing, front view, simple face with dot eyes,
-Stardew Valley style pixel art, clean chunky 16-bit pixel art, bright saturated colors,
-isolated single character on transparent background, no ground, no shadow,
-crisp clean edges, game asset
-```
-
-参数：`--ratio 2:3 --resolution 1K --background transparent`。同一 NPC 换装：以验收过的图作 `--reference-image`，`the same character from the reference image, same face, same hairstyle, same body proportions, now wearing <新服装>`。
-
-## 对话头像立绘（首饰/面部细节承载层）
-
-对话 UI、角色档案用；首饰、发型、面部特征在这里画清：
-
-```
-A single game asset sprite: character portrait bust of <人物描述>, chest-up, <发型>,
-<首饰细节：怀表链/胸针/耳环/眼镜>, <表情>, front view, simple clean face with dot eyes,
-Stardew Valley style pixel art, clean chunky 16-bit pixel art, bright saturated colors,
-isolated on transparent background, no shadow, crisp clean edges, game asset
-```
-
-参数：`--ratio 1:1 --resolution 1K --background transparent`；导出用 `portrait` 类别（64×64）。
-
-## 多帧动作 sprite sheet
-
-**AI 出草图序列 → Aseprite 人工修帧对齐**，不要期待直接可用。
-
-```
-A pixel art sprite sheet: one character <角色描述，与单帧版一字不差>, <动作> animation,
-<N> frames arranged in a single horizontal row, equal spacing between frames, identical
-character design, outfit and colors in every frame, <方向> view, Stardew Valley style
-pixel art, clean chunky 16-bit pixel art, bright saturated colors, transparent background,
-no ground, no shadow, game asset sprite sheet
-```
-
-参数：`--ratio 3:2 --resolution 1K --background transparent`。硬规则：必须用验收过的单帧图作 `--reference-image`；一次只出一个方向（4 方向行走分 4 次）；3-4 帧封顶。动作词库：`walking`、`idle breathing`、`sitting`、`swinging a tool`、`casting a spell`、`interacting`。环境动画与特效帧另见 `references/vfx-weather.md`。
-
-## 四向行走动画
-
-**规格**：4 方向（上/下/左/右），但标准 sheet 只画 **3 行 × 3 帧 = 96×144**（每帧 32×48，Godot 导入 Hframes=3 / Vframes=3）。腿部轨迹、重心、步幅、头髋位移、foot lock、silhouette 的硬规则见 `references/character-motion-standard.md`。
-
-- **行序**：R1 `down`（面向屏幕）/ R2 `right`（朝右）/ R3 `up`（背向屏幕）
-- **每方向 3 帧**：F1 站立、F2 跨步 A、F3 跨步 B；**播放序列 F1→F2→F1→F3 循环（各 200ms）**，站立帧复用。静止 = F1
-- **朝左不单独画**：运行时把 right 行水平翻转（Godot `flip_h`）。官方明确左右互为镜像；镜像导致的道具换手（扫帚/文明杖换侧）官方同样接受。强不对称角色如坚持双向都画，作变体另行存档，不进标准 sheet
-
-**帧条配方**（每方向一次生成：该角色上一版 approved 资产 + approved character Gold Anchor；地区差异再加 Scene Bible）——只需 down/right/up 三条，left 不生成：
-
-```
-A pixel art sprite sheet: the exact same character as the reference image, <一句最简角色
-身份，细节交给锚图>, walking animation, 4 frames in a single horizontal row with equal
-spacing: frame 1 standing still, frame 2 left leg forward mid-stride, frame 3 standing
-still, frame 4 right leg forward mid-stride, identical character design, outfit and colors
-in every frame, <方向词>, Stardew Valley style pixel art, clean chunky 16-bit pixel art,
-bright saturated colors, transparent background, no ground, no shadow, game asset sprite sheet
-```
-
-方向词：down `front view facing the viewer`；up `back view facing away from the viewer`；right `side view facing right`。角色描述压到最简（`one Victorian police constable in a dark navy uniform and custodian helmet` 级别），细节全靠锚图锁定，描述越多越容易和锚图打架。
-
-**后处理切帧**（AI 帧间距不均，必须程序切）：擦左下水印区 → alpha 列投影找连续段（合并 <30px 空隙）→ 段数 ≠4 时容错（多取前 4 段/少拆最宽段）→ 保持每帧共同源画布 → **取 f1/f2/f4 三帧**（站立/跨步A/跨步B，丢弃 f3 重复站立帧）→ 同方向三帧一次传给 `godot_export.py group character ...` → 跑 `motion_audit.py` → 按 down/right/up 行序拼 96×144 sheet。禁止逐帧独立 fit。
-
-**实测经验**（巡警样图）：侧视两方向腿部相位最清晰（跨步/并腿分明）；面向/背向相位较含蓄，靠手臂摆动和肩部晃动补足，验收时放宽这两向的腿部差异要求；帧间一致性整体良好，微小漂移（帽徽/纽扣位置）属草图级，Aseprite 收尾。
 
 ## 验收清单
 
-- [ ] 素体：全身完整、正面、双臂微张、肤色正确
-- [ ] 层：只含本层物件（多余像素如实报告并擦除）、比例与素体一致
-- [ ] 合成：32×48 叠层后无错位、无残边
-- [ ] 头像：胸像构图、首饰可辨、与全身像同一人
-- [ ] sprite sheet：帧数对、单行等距、逐帧同一人、动作相位连贯
-- [ ] 四向行走：sheet 3 行（down/right/up）× 3 帧（站立/跨步A/跨步B）、96×144、播放序列 F1-F2-F1-F3、left 由 right 镜像、脚贴各帧底边
-- [ ] motion audit：无 REJECT；APPROVE 才能进入 production，REVIEW 必须人工签字并记录理由
-
-## 修方
-
-- **层里长出了素体/别的层**：退化处理——按完整角色验收，人工在 Aseprite 擦除非本层区域（程序化备选：按肤色+区域擦除后导出，2026-08 样图验证可行）；下批 prompt 把 `everything except the <layer> fully transparent` 提前到句首
-- **叠层后素体露出**（样图实测：微张手臂露出修身风衣袖外）：服装轮廓必须完全覆盖素体该部位——生成层时补 `loose fit, sleeves and hem fully covering the body`；或合成时把服装层 alpha 向外膨胀 1-2px 后擦除其下素体像素；遮不住则直接用 AI 着装原图当完整角色
-- **跨帧/跨图长相漂移**：确认带了参考图，把 `identical character design, outfit and colors in every frame` 提前；帧数降到 3
-- **GIF 人物忽大忽小**（2026-08 实测）：AI 透明底图带满幅低 alpha 噪点地板（alpha<64 的数千个微弱点），alpha 包围盒被撑到满幅，godot_export 的 fit 按包围盒缩放 → 逐帧缩放抖动。已修：导出管线在裁切前把 alpha<64 整体清零（对全部类别生效）；帧内孤立残点（切帧遗留）用连通域过滤（保最大域 + ≥25px 域），但注意甄别——贴近身体的小连通域可能是角色的手，勿误删
-- **升 64×96 的教训**（2026-08 实测，已回退）：角色单独升 64×96 会破坏场景比例（96px 人物 vs 64px 树木、128 建筑门洞进不去人）——**角色尺寸必须和 tile/建筑同档联动，不能单独升**。且升档会暴露跨生成比例漂移：素体与着装层若来自不同次生成（头身比都可能不同），32×48 时亚像素误差被量化掩盖，64×96 下头发露出帽顶、纱影罩脸全部显形。若未来整体升档：素体与各服装层必须在同一次生成或同一参考图链上锁定头身比；帽类层纱影用"保帽子 keep-mask + 头区清 alpha"处理；仍错位则兜底——直接用 AI 着装原图当完整角色，纸娃娃交 Aseprite 人工收尾
-- **首饰被画成全身大件**：首饰层改走头像立绘，全身像省略
+- [ ] PNG 为原生 64×96，而非预先放大或 HD 缩小成品。
+- [ ] Alpha 只有 0/255，无抗锯齿、软边、平滑渐变。
+- [ ] 脚底锚点为 `(32,96)` 画布边界，最后可见行 y=95。
+- [ ] 所有层和帧共用坐标系，没有逐层/逐帧 bbox fit。
+- [ ] 颜色来自声明的廷根材质子色板，人物默认不超过 24 个不透明色。
+- [ ] 白天左上主光，暗面右下。
+- [ ] 四向齐全；idle/walk/run 帧数满足合同。
+- [ ] 步行 2 格/秒、跑步 5 格/秒由 Godot 世界移动控制，不写进动画 FPS。
+- [ ] `_4x.png` 仅为 Nearest 预览；`_1x.png` 才是运行时图片候选。
+- [ ] 入口、碰撞、导航和同屏比例另行验证后才能标 `runtime_ready`。

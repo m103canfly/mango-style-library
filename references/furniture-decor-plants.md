@@ -86,7 +86,7 @@ crisp clean edges, game asset
 
 ## 修方
 
-- **宽扁重复件（栅栏/栏杆/长椅）被 prop 画布压小**：prop 是 64×64 fit 居中，宽扁物件缩放后有效宽度可能只剩一半（2026-08 实测栅栏 64→33px）。两类处理：要连续铺贴的按导出件 alpha 内容宽为步距密排；或改用 tile 类别（32×32 拉伸）做标准段
+- **宽扁重复件（栅栏/栏杆/长椅）不能自动 fit**：先用专项任务合同写死 16px 对齐的原生 1× 尺寸，再由像素画师按该画布重绘。连续铺贴段单独声明 `tileable=true`；标准地形 tile 是 64×64，不能把任意 prop 拉伸成 tile。
 - **视角不对**：补 `flat 2D, slight top-down Stardew Valley view, object centered in frame`
 - **树冠糊成一团**：补三层色描述 + `chunky readable pixels`
 - **多件套被拆散**（桌椅分家）：写死 `as one combined sprite`，或拆两次生成

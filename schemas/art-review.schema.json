@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango-style-library.local/schemas/art-review.schema.json",
+  "title": "Mango Evidenced Art Review",
+  "type": "object",
+  "required": ["asset_id", "profile_id", "review_score", "review_verdict", "critical_failures", "dimensions", "reviewer", "reviewed_at"],
+  "properties": {
+    "profile_id": {"const": "tingen_pixel_v3_hd"},
+    "review_score": {"type": "number", "minimum": 0, "maximum": 100},
+    "review_verdict": {"enum": ["APPROVE", "REVIEW", "REJECT"]},
+    "critical_failures": {"type": "array", "items": {"type": "string"}},
+    "reviewer": {"type": "string", "minLength": 1},
+    "reviewed_at": {"type": "string", "format": "date-time"},
+    "dimensions": {"type": "object"}
+  }
+}

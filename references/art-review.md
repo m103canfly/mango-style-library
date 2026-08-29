@@ -13,9 +13,10 @@
 
 出现任一项直接 `REJECT`，总分不覆盖该结论：
 
-- 文件不可读、alpha/画布/类别尺寸错误，或导出后关键内容被裁掉。
-- 角色/纸娃娃层未共享 transform，或动画帧仍逐帧 bbox/fit。
-- 纸娃娃脚底不在 y=47，且偏差 ≥2px。
+- 文件不可读、不是 PNG、Alpha 出现 0/255 之外的值、画布/类别尺寸错误，或关键内容被裁掉。
+- 生成式 HD 参考被缩小、量化、bbox/fit 后直接冒充原生 1× 交付。
+- 正式纸娃娃层或动画帧经过逐层/逐帧 bbox/fit，没有保持原生 64×96 共同坐标系。
+- 人物脚底锚点不是 `(32,96)` `canvas_boundary`，或最后可见像素未落在 y=95。
 - AI 文字、伪水印、明显非目标 IP/品牌元素进入对外交付资产。
 - 软边抗锯齿、半写实笔触、错误透视使其不再属于项目像素语言。
 - Scene Bible/HUD review 图被误标为 engine-ready 资产。
@@ -29,7 +30,7 @@
 | Silhouette & composition | 20 | 100% 尺寸可读、视觉重心、轮廓、留白、视角 |
 | Style & palette | 20 | 固定 Master/Region/Special Palette、左上光、非纯黑描边、块状明暗 |
 | Category & regional identity | 15 | 类别配方命中；地域资产与 Scene Bible 特征一致但不照抄 HUD/构图 |
-| Scale & alignment | 15 | 与 32px tile、门洞、角色 baseline、paper-doll shared transform 一致 |
+| Scale & alignment | 15 | 与 64px tile、≥64px 公共门洞、`(32,96)` 人物锚点和纸娃娃共同坐标系一致 |
 | Motion/continuity | 10 | 动画相位、foot lock、轮廓重叠、身份一致；静态资产按跨变体一致性评分 |
 
 每维先给 0–5 档，再乘权重：
@@ -55,13 +56,23 @@
 
 ## Tool evidence
 
+### Score computation
+
+审查者先为六个维度分别给出 0–5 档，并为每个维度填写至少一个证据引用（技术 audit、motion report、Anchor 对照、Godot 截图或人工批注）。再运行：
+
+```bash
+python scripts/art_score.py review-input.json --json review.json
+```
+
+`art_score.py` 只负责可重复地计算权重、阈值和 critical fail 覆盖关系；它不会替审查者虚构证据，也不会自动把资产晋升为 Gold Anchor。
+
 ### Palette
 
-`scripts/palette_audit.py` 负责发现超出固定色板的主色，不再从场景图动态扩展机器基准。合法地区色和特殊色必须通过 `--region` / `--special` 显式声明。
+`scripts/palette_audit.py` 负责候选参考的固定色板诊断，不再从场景图动态扩展机器基准。正式 1× 资产由 `package_asset.py` / `validate_delivery.py` 对声明的材质子色板逐色验证，不能靠全图最近色量化过关。廷根 RGB 注册表处于 provisional 时不得给出 `runtime_ready`。
 
 ### Motion
 
-`scripts/motion_audit.py` 输出 bbox width/height variance、centroid drift、foot baseline drift、silhouette overlap、score 和 verdict。它不能判断脚的身份、动作表演或服装设计，人工仍需对照 `references/character-motion-standard.md`。
+`scripts/motion_audit.py` 输出画布/帧数、bbox width/height variance、centroid drift、foot anchor/baseline drift、silhouette overlap、score 和 verdict；完整 Sheet 还验证四个方向行。它不能判断脚的身份、动作表演或服装设计，人工仍需对照 `references/character-motion-standard.md`。
 
 ### Anchor authority
 

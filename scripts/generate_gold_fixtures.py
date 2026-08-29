@@ -39,15 +39,16 @@ def paper_doll() -> None:
 
 
 def motion() -> None:
-    for index, legs in enumerate(((13, 20), (11, 20), (14, 22))):
-        image = Image.new("RGBA", (32, 48), (0, 0, 0, 0))
+    leg_phases = ((27, 38), (24, 38), (25, 40), (29, 36), (31, 42), (29, 39))
+    for index, legs in enumerate(leg_phases):
+        image = Image.new("RGBA", (64, 96), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
-        draw.rectangle((12, 5, 19, 13), fill="#F2C49B")
-        draw.rectangle((10, 14, 21, 31), fill="#2E3A54")
-        draw.rectangle((8, 17, 10, 29), fill="#465672")
-        draw.rectangle((21, 17, 23, 29), fill="#465672")
-        draw.line((15, 31, legs[0], 47), fill="#6B3E1D", width=4)
-        draw.line((18, 31, legs[1], 47), fill="#8B5A2B", width=4)
+        draw.rectangle((24, 10, 39, 27), fill="#F2C49B")
+        draw.rectangle((20, 28, 43, 63), fill="#2E3A54")
+        draw.rectangle((16, 34, 21, 58), fill="#465672")
+        draw.rectangle((42, 34, 47, 58), fill="#465672")
+        draw.line((29, 62, legs[0], 95), fill="#6B3E1D", width=8)
+        draw.line((36, 62, legs[1], 95), fill="#8B5A2B", width=8)
         save(image, ROOT / "motion" / f"walk_{index}.png")
 
 

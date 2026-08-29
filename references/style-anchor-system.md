@@ -6,7 +6,7 @@
 
 权威文件：`references/art-direction.md`。
 
-它定义全项目共同的物理规则：像素画布、角色基线、门洞比例、左上主光、非纯黑描边、固定调色板层级。国家和具体服装不属于这一层。
+它定义廷根项目共同的物理规则：原生 1× PNG、64×64 tile、64×96 人物与 `(32,96)` 锚点、门洞比例、左上主光、材质子色板和标准交付目录。国家和具体服装不属于这一层。
 
 ## Level 1：Category Gold Anchors
 
@@ -64,7 +64,7 @@ Scene Bible 对“地域建筑语言、宏观构图、气候植被、材料关�
 
 - `references/art-review.md` 得分 ≥ 92；
 - 无 critical fail；
-- 已经通过固定调色板 remap 和目标画布导出；
+- 已由像素画师在目标原生 1× 画布完成，且通过材质子色板、硬 Alpha、标准目录和 Godot 合同审计；生成式 HD 参考不能直接晋升；
 - 相应类别的尺寸/视角/轮廓规则清晰可复用；
 - provenance 齐全：prompt、model、backend、anchor chain、palette、transform、review、version；
 - 替换旧锚时保留旧版本为 `retired`，不得静默覆盖。
